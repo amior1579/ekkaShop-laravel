@@ -8,7 +8,7 @@
     - Common
     - Popup Model
     - Breadcrumb
-03. Layout 
+03. Layout
     - Header Section
     - Mainslider Section
     - Product Tab Section
@@ -901,7 +901,7 @@
 }
 
 /*-------------------------------------------------
-  Vendor Section CSS For Home page 1 (index.html)
+  Vendor Section CSS For Home page 1 (index.blade.php)
 ---------------------------------------------------*/
 .ec-vendor-card {
   margin: 15px 0;

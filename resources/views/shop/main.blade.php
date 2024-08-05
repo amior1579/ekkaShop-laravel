@@ -38,7 +38,11 @@
 </head>
 
 <body>
+<!-- Header start  -->
+@include('shop.layouts.header.header')
+<!-- Header End  -->
 
+@yield('contents')
 
 
 <!-- Vendor JS -->
