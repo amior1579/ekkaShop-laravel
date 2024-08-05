@@ -44,6 +44,17 @@
 
 @yield('contents')
 
+{{-- social media (down/right side) --}}
+@include('shop.layouts.popup.social_media')
+{{-- social media End --}}
+
+<!-- Feature tools -->
+@include('shop.layouts.tools.ferture_tools')
+<!-- Feature tools end -->
+
+<!-- Footer Start -->
+@include('shop.layouts.footer.footer')
+<!-- Footer Area End -->
 
 <!-- Vendor JS -->
 <script src="/shop/js/vendor/jquery-3.5.1.min.js"></script>

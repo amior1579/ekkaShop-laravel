@@ -4039,4 +4039,14 @@
     </section>
     <!-- Ec Instagram End -->
 
+    <!-- Newsletter Modal Start -->
+{{--    @include('shop.layouts.popup.Newsletter')--}}
+    <!-- Newsletter Modal end -->
+
+    <!-- Recent Purchase Popup  -->
+{{--    @include('shop.layouts.popup.Recent_Purchase')--}}
+    <!-- Recent Purchase Popup end -->
+
+
+
 @endsection
