@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('name')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->integer('phonenumber')->nullable();
+            $table->string('phoneNumber',11)->nullable();
             $table->string('profile')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('total_buy')->nullable()->default(0);

@@ -20,7 +20,7 @@ class User extends Authenticatable
         'username',
         'name',
         'email',
-        'phonenumber',
+        'phoneNumber',
         'profile',
         'total_buy',
         'status',
