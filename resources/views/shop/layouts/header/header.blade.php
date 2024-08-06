@@ -62,7 +62,7 @@
                             <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
                                     class="fi-rr-user"></i></button>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a class="dropdown-item" href="register.html">Register</a></li>
+                                <li><a class="dropdown-item" href="{{url('register')}}">Register</a></li>
                                 <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
                                 <li><a class="dropdown-item" href="login.html">Login</a></li>
                                 <li><a class="dropdown-item" href="{{url('dashboard')}}">Dashboard</a></li>
@@ -132,7 +132,7 @@
                                 <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
                                         class="fi-rr-user"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="register.html">Register</a></li>
+                                    <li><a class="dropdown-item" href="{{url('register')}}">Register</a></li>
                                     <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
                                     <li><a class="dropdown-item" href="login.html">Login</a></li>
                                     <li><a class="dropdown-item" href="{{url('admin_dashboard')}}">Dashboard</a></li>
@@ -317,7 +317,7 @@
                                     <li><a href="compare.html">Compare</a></li>
                                     <li><a href="faq.html">FAQ</a></li>
                                     <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Register</a></li>
+                                    <li><a href="{{url('register')}}">Register</a></li>
                                     <li><a href="track-order.html">Track Order</a></li>
                                     <li><a href="terms-condition.html">Terms Condition</a></li>
                                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
@@ -628,7 +628,7 @@
                             <li><a href="compare.html">Compare</a></li>
                             <li><a href="faq.html">FAQ</a></li>
                             <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
+                            <li><a href="{{url('register')}}">Register</a></li>
                             <li><a href="track-order.html">Track Order</a></li>
                             <li><a href="terms-condition.html">Terms Condition</a></li>
                             <li><a href="privacy-policy.html">Privacy Policy</a></li>
