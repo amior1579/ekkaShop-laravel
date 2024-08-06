@@ -65,6 +65,7 @@
                                 <li><a class="dropdown-item" href="register.html">Register</a></li>
                                 <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
                                 <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                <li><a class="dropdown-item" href="{{url('dashboard')}}">Dashboard</a></li>
                             </ul>
                         </div>
                         <!-- Header User End -->
@@ -134,6 +135,7 @@
                                     <li><a class="dropdown-item" href="register.html">Register</a></li>
                                     <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
                                     <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                    <li><a class="dropdown-item" href="{{url('admin_dashboard')}}">Dashboard</a></li>
                                 </ul>
                             </div>
                             <!-- Header User End -->
