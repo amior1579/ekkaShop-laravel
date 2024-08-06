@@ -25,6 +25,7 @@ class AuthController extends Controller
         $validatedData = $request->validated();
         $data = $this->imageService->profileUser($validatedData);
         $this->authService->register($data);
+        return redirect('/');
 
     }
 }

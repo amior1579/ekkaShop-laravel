@@ -18,7 +18,7 @@
                 <div class="ec-register-wrapper">
                     <div class="ec-register-container">
                         <div class="ec-register-form">
-                            <form action="#" method="post">
+                            <form action="{{url('user_register')}}" method="post">
                                 @csrf
                                 <span class="ec-register-wrap ec-register-half">
                                     <label>Username*</label>
@@ -41,17 +41,12 @@
                                     <input type="password" name="password" placeholder="Enter your password" required/>
                                 </span>
                                 <span class="ec-register-wrap ec-register-half">
+                                    <label>password confirmation</label>
+                                    <input type="password" name="password_confirmation" placeholder="Enter your password_confirmation" required/>
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
                                     <label>Profile</label>
                                     <input type="file" name="profile"/>
-                                </span>
-                                <span class="ec-register-wrap ec-register-half"></span>
-                                <span class="ec-register-wrap ec-recaptcha">
-                                    <span class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
-                                          data-callback="verifyRecaptchaCallback"
-                                          data-expired-callback="expiredRecaptchaCallback"></span>
-                                    <input class="form-control d-none" data-recaptcha="true" required
-                                           data-error="Please complete the Captcha">
-                                    <span class="help-block with-errors"></span>
                                 </span>
                                 <span class="ec-register-wrap ec-register-btn">
                                     <button class="btn btn-primary" type="submit">Register</button>
