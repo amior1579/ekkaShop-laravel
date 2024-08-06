@@ -18,35 +18,71 @@
                 <div class="ec-register-wrapper">
                     <div class="ec-register-container">
                         <div class="ec-register-form">
-                            <form action="{{url('user_register')}}" method="post">
+                            @if($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            <form action="{{ url('user_register') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <span class="ec-register-wrap ec-register-half">
                                     <label>Username*</label>
-                                    <input type="text" name="username" placeholder="Enter your username" required />
+                                    <input type="text" name="username" placeholder="Enter your username" value="{{ old('username') }}" required />
+                                    @error('username')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </span>
-                                <span class="ec-register-wrap ec-register-half">
+                                    <span class="ec-register-wrap ec-register-half">
                                     <label>Name</label>
-                                    <input type="text" name="name" placeholder="Enter your name" />
+                                    <input type="text" name="name" placeholder="Enter your name" value="{{ old('name') }}" />
+                                    @error('name')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </span>
-                                <span class="ec-register-wrap ec-register-half">
+                                    <span class="ec-register-wrap ec-register-half">
                                     <label>Email</label>
-                                    <input type="email" name="email" placeholder="Enter your email add..." />
+                                    <input type="email" name="email" placeholder="Enter your email add..." value="{{ old('email') }}" />
+                                    @error('email')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </span>
-                                <span class="ec-register-wrap ec-register-half">
+                                    <span class="ec-register-wrap ec-register-half">
                                     <label>Phone Number</label>
-                                    <input type="text" name="phoneNumber" placeholder="Enter your phone number"/>
+                                    <input type="text" name="phoneNumber" placeholder="Enter your phone number" value="{{ old('phoneNumber') }}" />
+                                    @error('phoneNumber')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </span>
                                 <span class="ec-register-wrap ec-register-half">
                                     <label>Password</label>
-                                    <input type="password" name="password" placeholder="Enter your password" required/>
+                                    <input type="password" name="password" placeholder="Enter your password" required />
+                                    @error('password')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </span>
                                 <span class="ec-register-wrap ec-register-half">
-                                    <label>password confirmation</label>
-                                    <input type="password" name="password_confirmation" placeholder="Enter your password_confirmation" required/>
+                                    <label>Password Confirmation</label>
+                                    <input type="password" name="password_confirmation" placeholder="Enter your password confirmation" required />
+                                    @error('password_confirmation')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </span>
                                 <span class="ec-register-wrap ec-register-half">
                                     <label>Profile</label>
-                                    <input type="file" name="profile"/>
+                                    <input type="file" name="profile" />
+                                    @error('profile')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </span>
                                 <span class="ec-register-wrap ec-register-btn">
                                     <button class="btn btn-primary" type="submit">Register</button>
@@ -58,4 +94,5 @@
             </div>
         </div>
     </section>
+
 @endsection
