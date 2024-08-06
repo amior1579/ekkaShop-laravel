@@ -103,7 +103,7 @@
                     <!-- Ec Header Logo Start -->
                     <div class="align-self-center">
                         <div class="header-logo">
-                            <a href="index.html"><img src="/shop/images/logo/logo.png" alt="Site Logo" /><img
+                            <a href="{{ url('/') }}"><img src="/shop/images/logo/logo.png" alt="Site Logo" /><img
                                     class="dark-logo" src="/shop/images/logo/dark-logo.png" alt="Site Logo"
                                     style="display: none;" /></a>
                         </div>
@@ -164,7 +164,7 @@
                 <!-- Ec Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <a href="index.html"><img src="/shop/images/logo/logo.png" alt="Site Logo" /><img
+                        <a href="{{ url('/') }}"><img src="/shop/images/logo/logo.png" alt="Site Logo" /><img
                                 class="dark-logo" src="/shop/images/logo/dark-logo.png" alt="Site Logo"
                                 style="display: none;" /></a>
                     </div>
@@ -194,7 +194,7 @@
                             <i class="fi fi-rr-apps"></i>
                         </a>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
                             <li class="dropdown position-static"><a href="javascript:void(0)">Categories</a>
                                 <ul class="mega-menu d-block">
                                     <li class="d-flex">
@@ -469,7 +469,7 @@
         <div class="ec-menu-inner">
             <div class="ec-menu-content">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="javascript:void(0)">Categories</a>
                         <ul class="sub-menu">
                             <li>

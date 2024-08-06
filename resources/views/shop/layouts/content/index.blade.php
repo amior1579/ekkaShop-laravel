@@ -1,5 +1,9 @@
 @extends('shop.main')
 
+@section('title')
+    <title>Ekka</title>
+@endsection
+
 @section('contents')
     <!-- ekka Cart Start -->
     <div class="ec-side-cart-overlay"></div>

@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-sm-12 col-lg-3 ec-footer-contact">
                         <div class="ec-footer-widget">
-                            <div class="ec-footer-logo"><a href="#"><img src="/shop/images/logo/footer-logo.png"
+                            <div class="ec-footer-logo"><a href="{{ url('/') }}"><img src="/shop/images/logo/footer-logo.png"
                                                                          alt=""><img class="dark-footer-logo" src="/shop/images/logo/dark-logo.png"
                                                                                      alt="Site Logo" style="display: none;" /></a></div>
                             <h4 class="ec-footer-heading">Contact us</h4>
@@ -265,7 +265,7 @@
                         class="ec-cart-noti ec-header-count cart-count-lable">3</span></a>
             </div>
             <div class="ec-nav-panel-icons">
-                <a href="index.html" class="ec-header-btn"><i class="fi-rr-home"></i></a>
+                <a href="{{ url('/') }}" class="ec-header-btn"><i class="fi-rr-home"></i></a>
             </div>
             <div class="ec-nav-panel-icons">
                 <a href="wishlist.html" class="ec-header-btn"><i class="fi-rr-heart"></i><span
