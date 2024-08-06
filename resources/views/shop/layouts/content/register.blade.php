@@ -34,7 +34,7 @@
                                 </span>
                                 <span class="ec-register-wrap ec-register-half">
                                     <label>Phone Number</label>
-                                    <input type="text" name="phonenumber" placeholder="Enter your phone number"/>
+                                    <input type="text" name="phoneNumber" placeholder="Enter your phone number"/>
                                 </span>
                                 <span class="ec-register-wrap ec-register-half">
                                     <label>Password</label>
