@@ -272,7 +272,7 @@
                         class="ec-cart-noti">4</span></a>
             </div>
             <div class="ec-nav-panel-icons">
-                <a href="login.html" class="ec-header-btn"><i class="fi-rr-user"></i></a>
+                <a href="{{url('login')}}" class="ec-header-btn"><i class="fi-rr-user"></i></a>
             </div>
 
         </div>

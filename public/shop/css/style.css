@@ -18,7 +18,7 @@
     - Common
     - Popup Model
     - Breadcrumb
-03. Layout 
+03. Layout
     - Header Section
     - Mainslider Section
     - Product Tab Section
@@ -48,7 +48,7 @@
     - Cart Page
     - Compare Page
     - Track Order Page
-    - Checkout Page    
+    - Checkout Page
     - Elements Tabs Page
     - Elements Categories Page
     - Elements Buttons Page
@@ -20857,13 +20857,24 @@ select::-ms-expand {
 }
 .ec-login-wrapper .ec-login-container .ec-login-form input {
   background-color: transparent;
-  border: 1px solid #eeeeee;
-  color: #777;
+    border: 1px solid #a7a7a7;
+    border-radius: 5px;  color: #777;
   font-size: 14px;
   margin-bottom: 27px;
   padding: 0 15px;
   width: 100%;
   outline: none;
+}
+.ec-login-wrapper .ec-login-container .ec-login-form .alert {
+    background-color: #f46d6d;
+    border: 1px solid #f35c5c;
+    border-radius: 5px;  color: #d2d2d2;
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 26px;
+    padding: 10px 15px;
+    width: 100%;
+    outline: none;
 }
 .ec-login-wrapper .ec-login-container .ec-login-form .ec-login-wrap + .ec-login-wrap input {
   margin-bottom: 15px;
@@ -20953,11 +20964,22 @@ select::-ms-expand {
 }
 .ec-register-wrapper .ec-register-container .ec-register-form input {
   background-color: transparent;
-  border: 1px solid #ededed;
-  color: #777;
+    border: 1px solid #a7a7a7;
+    border-radius: 5px;  color: #777;
   font-size: 14px;
   margin-bottom: 26px;
   padding: 0 15px;
+  width: 100%;
+  outline: none;
+}
+.ec-register-wrapper .ec-register-container .ec-register-form .alert {
+  background-color: #f46d6d;
+  border: 1px solid #f35c5c;
+  border-radius: 5px;  color: #d2d2d2;
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 26px;
+  padding: 10px 15px;
   width: 100%;
   outline: none;
 }
@@ -30297,7 +30319,7 @@ input[type=email]:focus::-webkit-input-placeholder {
    vendor Page CSS
    	- Single Vendor
    	- Multi Vendor
-   	- Vendor Sidebar 
+   	- Vendor Sidebar
    	- Vendor Dashboard
    	- Vendor Upload
    	- Vendor Profile
