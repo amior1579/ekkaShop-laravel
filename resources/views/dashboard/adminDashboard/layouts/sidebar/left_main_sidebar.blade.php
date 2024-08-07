@@ -21,6 +21,33 @@
                     <hr>
                 </li>
 
+                <!-- Users -->
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)">
+                        <i class="mdi mdi-account-group"></i>
+                        <span class="nav-text">Users</span> <b class="caret"></b>
+                    </a>
+                    <div class="collapse">
+                        <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
+                            <li class="">
+                                <a class="sidenav-item-link" href="{{url('admin_dashboard/users_list')}}">
+                                    <span class="nav-text">User List</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href="user-card.html">
+                                    <span class="nav-text">User Grid</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="sidenav-item-link" href="user-profile.html">
+                                    <span class="nav-text">Users Profile</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <!-- Vendors -->
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)">
@@ -43,34 +70,6 @@
                             <li class="">
                                 <a class="sidenav-item-link" href="vendor-profile.html">
                                     <span class="nav-text">Vendors Profile</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <!-- Users -->
-                <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)">
-                        <i class="mdi mdi-account-group"></i>
-                        <span class="nav-text">Users</span> <b class="caret"></b>
-                    </a>
-                    <div class="collapse">
-                        <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
-                            <li>
-                                <a class="sidenav-item-link" href="user-card.html">
-                                    <span class="nav-text">User Grid</span>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a class="sidenav-item-link" href="user-list.html">
-                                    <span class="nav-text">User List</span>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a class="sidenav-item-link" href="user-profile.html">
-                                    <span class="nav-text">Users Profile</span>
                                 </a>
                             </li>
                         </ul>

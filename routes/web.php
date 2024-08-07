@@ -1,17 +1,19 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-// ------- View -------
+// ------- shop View -------
 Route::get('/', function () {return view('shop.layouts.content.index');})->name('home');
-
 Route::get('/register', function () {return view('shop.layouts.content.register');});
 Route::get('/login', function () {return view('shop.layouts.content.login');});
 
-Route::get('/admin_dashboard', function () {
-    return view('dashboard.adminDashboard.layouts.content.index');
-});
+
+// ------- admin dashboard View -------
+Route::get('/admin_dashboard', function () {return view('dashboard.adminDashboard.layouts.content.index');});
+Route::get('/admin_dashboard/users_list', [AdminDashboardController::class,'users_list']);
+
 
 
 Route::post('user_register',[AuthController::class,'user_register']);

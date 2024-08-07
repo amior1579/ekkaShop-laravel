@@ -17,4 +17,8 @@ class AuthRepository
     {
         return User::create($data);
     }
+
+    public function allUser(){
+        return User::all();
+    }
 }

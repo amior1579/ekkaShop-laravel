@@ -138,11 +138,11 @@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     @if(Auth::check())
                                         <li><a class="dropdown-item" href="">{{Auth::user()->username}}</a></li>
-                                        <li><a class="dropdown-item" href="{{url('dashboard')}}">Dashboard</a></li>
                                     @else
                                         <li><a class="dropdown-item" href="{{url('login')}}">Login</a></li>
                                         <li><a class="dropdown-item" href="{{url('register')}}">Register</a></li>
                                     @endif
+                                    <li><a class="dropdown-item" href="{{url('admin_dashboard')}}">Dashboard</a></li>
                                     <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
                                 </ul>
                             </div>

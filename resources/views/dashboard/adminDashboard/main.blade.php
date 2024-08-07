@@ -19,14 +19,14 @@
     <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 
     <!-- PLUGINS CSS STYLE -->
-    <link href="dashboard/adminDashboard/plugins/daterangepicker/daterangepicker.css" rel="stylesheet">
-    <link href="dashboard/adminDashboard/plugins/simplebar/simplebar.css" rel="stylesheet" />
+    <link href="/dashboard/adminDashboard/plugins/daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="/dashboard/adminDashboard/plugins/simplebar/simplebar.css" rel="stylesheet" />
 
     <!-- Ekka CSS -->
-    <link id="ekka-css" href="dashboard/adminDashboard/css/ekka.css" rel="stylesheet" />
+    <link id="ekka-css" href="/dashboard/adminDashboard/css/ekka.css" rel="stylesheet" />
 
     <!-- FAVICON -->
-    <link href="dashboard/adminDashboard/img/favicon.png" rel="shortcut icon" />
+    <link href="/dashboard/adminDashboard/img/favicon.png" rel="shortcut icon" />
 
 </head>
 
@@ -57,30 +57,30 @@
     </div> <!-- End Wrapper -->
 
     <!-- Common Javascript -->
-    <script src="dashboard/adminDashboard/plugins/jquery/jquery-3.5.1.min.js"></script>
-    <script src="dashboard/adminDashboard/js/bootstrap.bundle.min.js"></script>
-    <script src="dashboard/adminDashboard/plugins/simplebar/simplebar.min.js"></script>
-    <script src="dashboard/adminDashboard/plugins/jquery-zoom/jquery.zoom.min.js"></script>
-    <script src="dashboard/adminDashboard/plugins/slick/slick.min.js"></script>
+    <script src="/dashboard/adminDashboard/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/dashboard/adminDashboard/js/bootstrap.bundle.min.js"></script>
+    <script src="/dashboard/adminDashboard/plugins/simplebar/simplebar.min.js"></script>
+    <script src="/dashboard/adminDashboard/plugins/jquery-zoom/jquery.zoom.min.js"></script>
+    <script src="/dashboard/adminDashboard/plugins/slick/slick.min.js"></script>
 
     <!-- Chart -->
-    <script src="dashboard/adminDashboard/plugins/charts/Chart.min.js"></script>
-    <script src="dashboard/adminDashboard/js/chart.js"></script>
+    <script src="/dashboard/adminDashboard/plugins/charts/Chart.min.js"></script>
+    <script src="/dashboard/adminDashboard/js/chart.js"></script>
 
     <!-- Google map chart -->
-    <script src="dashboard/adminDashboard/plugins/charts/google-map-loader.js"></script>
-    <script src="dashboard/adminDashboard/plugins/charts/google-map.js"></script>
+    <script src="/dashboard/adminDashboard/plugins/charts/google-map-loader.js"></script>
+    <script src="/dashboard/adminDashboard/plugins/charts/google-map.js"></script>
 
     <!-- Date Range Picker -->
-    <script src="dashboard/adminDashboard/plugins/daterangepicker/moment.min.js"></script>
-    <script src="dashboard/adminDashboard/plugins/daterangepicker/daterangepicker.js"></script>
-    <script src="dashboard/adminDashboard/js/date-range.js"></script>
+    <script src="/dashboard/adminDashboard/plugins/daterangepicker/moment.min.js"></script>
+    <script src="/dashboard/adminDashboard/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="/dashboard/adminDashboard/js/date-range.js"></script>
 
     <!-- Option Switcher -->
-    <script src="dashboard/adminDashboard/plugins/options-sidebar/optionswitcher.js"></script>
+    <script src="/dashboard/adminDashboard/plugins/options-sidebar/optionswitcher.js"></script>
 
     <!-- Ekka Custom -->
-    <script src="dashboard/adminDashboard/js/ekka.js"></script>
+    <script src="/dashboard/adminDashboard/js/ekka.js"></script>
 </body>
 
 </html>
