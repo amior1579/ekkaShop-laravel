@@ -14,5 +14,9 @@ class AdminDashboardService{
     {
         return $this->authRepository->allUser();
     }
+    public function addUser($data)
+    {
+        return $this->authRepository->createUser($data);
+    }
 
 }

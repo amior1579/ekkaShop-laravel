@@ -13,6 +13,7 @@ Route::get('/login', function () {return view('shop.layouts.content.login');});
 // ------- admin dashboard View -------
 Route::get('/admin_dashboard', function () {return view('dashboard.adminDashboard.layouts.content.index');});
 Route::get('/admin_dashboard/users_list', [AdminDashboardController::class,'users_list']);
+Route::post('/admin_dashboard/users_list/addUser', [AdminDashboardController::class,'addUser']);
 
 
 

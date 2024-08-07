@@ -5452,6 +5452,29 @@ textarea.form-control-lg {
   outline: 0;
 }
 
+
+.user-status {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="5" viewBox="0 0 4 5"%3E%3Cpath fill="%23495057" d="M2 0L0 2h4L2 0zm0 5L0 3h4l-2 2z"%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 8px 10px;
+}
+.user-status:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
 .modal-backdrop {
   position: fixed;
   top: 0;

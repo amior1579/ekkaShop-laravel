@@ -82,24 +82,20 @@
                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
-                        <form>
+                        <form action="{{url('admin_dashboard/users_list/addUser')}}" method="post" enctype="multipart/form-data">
+                        @csrf
                             <div class="modal-header px-4">
                                 <h5 class="modal-title" id="exampleModalCenterTitle">Add New User</h5>
                             </div>
 
                             <div class="modal-body px-4">
                                 <div class="form-group row mb-6">
-                                    <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">User
-                                        Image</label>
-
+                                    <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">User Profile</label>
                                     <div class="col-sm-8 col-lg-10">
                                         <div class="custom-file mb-1">
-                                            <input type="file" class="custom-file-input" id="coverImage"
-                                                   required>
-                                            <label class="custom-file-label" for="coverImage">Choose
-                                                file...</label>
-                                            <div class="invalid-feedback">Example invalid custom file feedback
-                                            </div>
+                                            <input type="file" name="profile" class="custom-file-input" id="coverImage">
+                                            <label class="custom-file-label" for="coverImage">Choose image...</label>
+                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
                                         </div>
                                     </div>
                                 </div>
@@ -107,56 +103,54 @@
                                 <div class="row mb-2">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="firstName">First name</label>
-                                            <input type="text" class="form-control" id="firstName" value="John">
+                                            <label for="username">Username</label>
+                                            <input type="text" name="username" class="form-control" id="username" placeholder="john" required>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="lastName">Last name</label>
-                                            <input type="text" class="form-control" id="lastName" value="Deo">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group mb-4">
-                                            <label for="userName">User name</label>
-                                            <input type="text" class="form-control" id="userName"
-                                                   value="johndoe">
+                                            <label for="name">Name</label>
+                                            <input type="text" name="name" class="form-control" id="name" placeholder="Deo">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
                                             <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email"
-                                                   value="johnexample@gmail.com">
+                                            <input type="email" name="email" class="form-control" id="email" placeholder="DeoExample@gmail.com">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-4">
+                                            <label for="phoneNumber">Phone number</label>
+                                            <input type="text" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="09111111111">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
-                                            <label for="Birthday">Birthday</label>
-                                            <input type="text" class="form-control" id="Birthday"
-                                                   value="10-12-1991">
+                                            <label for="status">Status</label>
+                                            <select class="form-control user-status" id="status" name="status">
+                                                <option value="active">Active</option>
+                                                <option value="inactive">Inactive</option>
+                                                <option value="pending">Pending</option>
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
-                                            <label for="event">Address</label>
-                                            <input type="text" class="form-control" id="event"
-                                                   value="Address here">
+                                            <label for="password">Password</label>
+                                            <input type="password" name="password" class="form-control" id="password">
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="modal-footer px-4">
-                                <button type="button" class="btn btn-secondary btn-pill"
-                                        data-bs-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-primary btn-pill">Save Contact</button>
+                                <button type="button" class="btn btn-secondary btn-pill" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary btn-pill">Save Contact</button>
                             </div>
                         </form>
                     </div>
