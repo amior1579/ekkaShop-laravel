@@ -6,6 +6,7 @@ use App\Http\Requests\Auth\loginRequest;
 use App\Http\Requests\Auth\registerRequest;
 use App\Http\Services\AuthService;
 use App\Http\Services\ImageService;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -38,5 +39,9 @@ class AuthController extends Controller
         } else {
             return redirect()->back()->withErrors(['login' => 'Invalid credentials'])->withInput();
         }
+    }
+    public function user_delete(Request $request)
+    {
+        return $this->authService->delete($request->user_id);
     }
 }

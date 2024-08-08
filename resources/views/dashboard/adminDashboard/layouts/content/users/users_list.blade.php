@@ -62,7 +62,7 @@
 
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="{{ url('user_delete/' . $user->id) }}">Delete</a>
                                                     </div>
                                                 </div>
                                             </td>

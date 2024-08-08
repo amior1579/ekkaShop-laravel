@@ -19,3 +19,4 @@ Route::post('/admin_dashboard/users_list/addUser', [AdminDashboardController::cl
 
 Route::post('user_register',[AuthController::class,'user_register']);
 Route::post('user_login',[AuthController::class,'user_login']);
+Route::get('user_delete/{user_id}',[AuthController::class,'user_delete']);
