@@ -369,4 +369,13 @@ $(document).ready(function () {
     location.reload();
   });
 
+
+    var classes = $('.ec-content-wrapper').attr('class').split(' ');
+    var choise_menu = classes[1];
+    var choise_list = classes[2];
+    $('#'+ choise_menu ).addClass('active','expand');
+    $('#' + choise_menu + ' .collapse').addClass('show');
+    $('#'+ choise_list ).addClass('active');
+
+
 });

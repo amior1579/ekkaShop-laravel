@@ -13,7 +13,7 @@
             <!-- sidebar menu -->
             <ul class="nav sidebar-inner" id="sidebar-menu">
                 <!-- Dashboard -->
-                <li class="active">
+                <li class="" id="dashbord">
                     <a class="sidenav-item-link" href="{{url('admin_dashboard')}}">
                         <i class="mdi mdi-view-dashboard-outline"></i>
                         <span class="nav-text">Dashboard</span>
@@ -22,24 +22,24 @@
                 </li>
 
                 <!-- Users -->
-                <li class="has-sub">
+                <li class="has-sub" id="users-menu">
                     <a class="sidenav-item-link" href="javascript:void(0)">
                         <i class="mdi mdi-account-group"></i>
                         <span class="nav-text">Users</span> <b class="caret"></b>
                     </a>
-                    <div class="collapse">
+                    <div class="collapse" id="users-collapse">
                         <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
-                            <li class="">
-                                <a class="sidenav-item-link" href="{{url('admin_dashboard/users_list')}}">
+                            <li class="" id="user-list">
+                                <a class="sidenav-item-link " href="{{url('admin_dashboard/users_list')}}">
                                     <span class="nav-text">User List</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="" id="user-grid">
                                 <a class="sidenav-item-link" href="user-card.html">
                                     <span class="nav-text">User Grid</span>
                                 </a>
                             </li>
-                            <li class="">
+                            <li class="" id="users-profile">
                                 <a class="sidenav-item-link" href="user-profile.html">
                                     <span class="nav-text">Users Profile</span>
                                 </a>

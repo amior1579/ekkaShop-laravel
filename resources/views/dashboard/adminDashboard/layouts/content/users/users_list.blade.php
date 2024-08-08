@@ -5,7 +5,7 @@
 @endsection
 
 @section('contents')
-    <div class="ec-content-wrapper">
+    <div class="ec-content-wrapper users-menu user-list ">
         <div class="content">
             <div class="breadcrumb-wrapper breadcrumb-contacts">
                 <div>
@@ -15,9 +15,7 @@
                     </p>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#addUser"> Add User
-                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser"> Add User</button>
                 </div>
             </div>
             <div class="row">

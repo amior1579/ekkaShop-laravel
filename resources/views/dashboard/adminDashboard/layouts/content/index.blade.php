@@ -5,7 +5,7 @@
 @endsection
 
 @section('contents')
-    <div class="ec-content-wrapper">
+    <div class="ec-content-wrapper dashbord">
         <div class="content">
             <!-- Top Statistics -->
             <div class="row">
