@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('total_buy')->nullable()->default(0);
             $table->enum('status', ['active', 'inactive', 'pending'])->default('active');
+            $table->enum('role', ['admin', 'seller', 'customer'])->default('customer');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

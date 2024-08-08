@@ -5453,7 +5453,8 @@ textarea.form-control-lg {
 }
 
 
-.user-status {
+.user-status,
+.user-role {
     background-color: #f8f9fa;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
@@ -5469,7 +5470,8 @@ textarea.form-control-lg {
     background-position: right 0.75rem center;
     background-size: 8px 10px;
 }
-.user-status:focus {
+.user-status:focus,
+.user-role:focus {
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);

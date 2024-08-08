@@ -28,6 +28,7 @@ class AddUserRequest extends FormRequest
             'phoneNumber' => 'nullable|string|size:11|regex:/^09[0-9]{9}$/',
             'profile' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'status' => 'required|in:active,inactive,pending',
+            'role' => 'required|in:admin,seller,customer',
             'password' => 'required|string|min:4',
         ];
     }

@@ -33,6 +33,7 @@
                                             <th>Phone</th>
                                             <th>Total Buy</th>
                                             <th>Status</th>
+                                            <th>Role</th>
                                             <th>Join On</th>
                                             <th>Action</th>
                                         </tr>
@@ -48,6 +49,7 @@
                                             <td>{{$user->phoneNumber}}</td>
                                             <td>{{$user->total_buy}}</td>
                                             <td>{{$user->status}}</td>
+                                            <td>{{$user->role}}</td>
                                             <td>{{$user->created_at}}</td>
                                             <td>
                                                 <div class="btn-group mb-1">
@@ -133,6 +135,16 @@
                                                 <option value="active">Active</option>
                                                 <option value="inactive">Inactive</option>
                                                 <option value="pending">Pending</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-4">
+                                            <label for="status">Role</label>
+                                            <select class="form-control user-role" id="role" name="role">
+                                                <option value="customer">Customer</option>
+                                                <option value="seller">Seller</option>
+                                                <option value="admin">Admin</option>
                                             </select>
                                         </div>
                                     </div>

@@ -23,6 +23,7 @@ class User extends Authenticatable
         'phoneNumber',
         'profile',
         'total_buy',
+        'role',
         'status',
         'password',
     ];
