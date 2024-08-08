@@ -25,17 +25,17 @@
                             <div class="table-responsive">
                                 <table id="responsive-data-table" class="table">
                                     <thead>
-                                    <tr>
-                                        <th>Profile</th>
-                                        <th>Username</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Total Buy</th>
-                                        <th>Status</th>
-                                        <th>Join On</th>
-                                        <th>Action</th>
-                                    </tr>
+                                        <tr>
+                                            <th>Profile</th>
+                                            <th>Username</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Total Buy</th>
+                                            <th>Status</th>
+                                            <th>Join On</th>
+                                            <th>Action</th>
+                                        </tr>
                                     </thead>
 
                                     <tbody>

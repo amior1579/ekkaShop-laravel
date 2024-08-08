@@ -28,6 +28,11 @@
     <!-- FAVICON -->
     <link href="/dashboard/adminDashboard/img/favicon.png" rel="shortcut icon" />
 
+    <!-- Data Tables (user list) -->
+    <link href='/dashboard/adminDashboard/plugins/data-tables/datatables.bootstrap5.min.css' rel='stylesheet'>
+    <link href='/dashboard/adminDashboard/plugins/data-tables/responsive.datatables.min.css' rel='stylesheet'>
+
+
 </head>
 
 <body class="ec-header-fixed ec-sidebar-fixed ec-sidebar-light ec-header-light" id="body">
@@ -81,6 +86,12 @@
 
     <!-- Ekka Custom -->
     <script src="/dashboard/adminDashboard/js/ekka.js"></script>
+
+    <!-- Data Tables (user list) -->
+    <script src='/dashboard/adminDashboard/plugins/data-tables/jquery.datatables.min.js'></script>
+    <script src='/dashboard/adminDashboard/plugins/data-tables/datatables.bootstrap5.min.js'></script>
+    <script src='/dashboard/adminDashboard/plugins/data-tables/datatables.responsive.min.js'></script>
+
 </body>
 
 </html>
