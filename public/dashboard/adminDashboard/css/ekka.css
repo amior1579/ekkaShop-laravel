@@ -17623,13 +17623,13 @@ a.badge-purple:focus, a.badge-purple.focus {
 }
 .btn.btn-primary {
   color: #ffffff;
-  background-color: #88aaf3;
-  border-color: #88aaf3;
+  background-color: rgba(236, 74, 88, 0.76);
+  border-color: rgba(236, 74, 88, 0.85);
 }
 .btn.btn-primary:hover, .btn.btn-outline-primary:hover {
   color: #ffffff;
-  background-color: #6d88c2;
-  border-color: #6d88c2;
+    background-color: #ec4a58;
+    border-color: #ec4a58;
 }
 .btn.btn-secondary {
   color: #ffffff;

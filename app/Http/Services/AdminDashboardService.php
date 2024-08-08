@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Services;
 use App\Repositories\AuthRepository;
+use Illuminate\Support\Facades\Auth;
 
 class AdminDashboardService{
 
@@ -17,6 +18,10 @@ class AdminDashboardService{
     public function addUser($data)
     {
         return $this->authRepository->createUser($data);
+    }
+    public function getUser()
+    {
+        return Auth::user();
     }
 
 }

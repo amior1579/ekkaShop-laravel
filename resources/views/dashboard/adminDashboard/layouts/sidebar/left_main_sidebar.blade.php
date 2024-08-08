@@ -34,13 +34,8 @@
                                     <span class="nav-text">User List</span>
                                 </a>
                             </li>
-                            <li class="" id="user-grid">
-                                <a class="sidenav-item-link" href="user-card.html">
-                                    <span class="nav-text">User Grid</span>
-                                </a>
-                            </li>
                             <li class="" id="users-profile">
-                                <a class="sidenav-item-link" href="user-profile.html">
+                                <a class="sidenav-item-link" href="{{url('admin_dashboard/users_profile')}}">
                                     <span class="nav-text">Users Profile</span>
                                 </a>
                             </li>

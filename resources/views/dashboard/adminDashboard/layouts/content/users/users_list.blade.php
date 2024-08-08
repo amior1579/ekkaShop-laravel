@@ -1,7 +1,7 @@
 @extends('dashboard.adminDashboard.main')
 
 @section('title')
-    <title>Ekka</title>
+    <title>Dashboard | Users list</title>
 @endsection
 
 @section('contents')

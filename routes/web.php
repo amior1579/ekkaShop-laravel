@@ -14,6 +14,8 @@ Route::get('/login', function () {return view('shop.layouts.content.login');});
 Route::get('/admin_dashboard', function () {return view('dashboard.adminDashboard.layouts.content.index');});
 Route::get('/admin_dashboard/users_list', [AdminDashboardController::class,'users_list']);
 Route::post('/admin_dashboard/users_list/addUser', [AdminDashboardController::class,'addUser']);
+Route::get('/admin_dashboard/users_profile', [AdminDashboardController::class,'users_profile']);
+//Route::get('/admin_dashboard/users_profile/{user_id}', [AdminDashboardController::class,'users_profile']);
 
 
 

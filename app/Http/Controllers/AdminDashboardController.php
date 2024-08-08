@@ -32,4 +32,8 @@ class AdminDashboardController extends Controller
         $this->adminDashService->addUser($data);
         return redirect()->back();
     }
+    public function users_profile(){
+        $user = $this->adminDashService->getUser();
+        return view('dashboard.adminDashboard.layouts.content.users.users_profile',compact('user'));
+    }
 }
