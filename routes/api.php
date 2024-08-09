@@ -15,3 +15,4 @@ Route::get('/admin_dashboard/users_list', [AdminDashboardController::class,'user
 Route::post('/admin_dashboard/users_list/addUser', [AdminDashboardController::class,'addUser']);
 Route::get('/admin_dashboard/users_profile', [AdminDashboardController::class,'users_profile']);
 Route::get('/admin_dashboard/users_profile/{user_id}', [AdminDashboardController::class,'users_profile']);
+Route::post('/admin_dashboard/users_profile/userUpdate/{user_id}', [AdminDashboardController::class,'userUpdate']);

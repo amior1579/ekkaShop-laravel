@@ -17622,14 +17622,14 @@ a.badge-purple:focus, a.badge-purple.focus {
   border-color: #ec4a58;
 }
 .btn.btn-primary {
-  color: #ffffff;
-  background-color: rgba(236, 74, 88, 0.76);
-  border-color: rgba(236, 74, 88, 0.85);
+    color: #ffffff;
+    background-color: #88aaf3;
+    border-color: #88aaf3;
 }
 .btn.btn-primary:hover, .btn.btn-outline-primary:hover {
-  color: #ffffff;
-    background-color: #ec4a58;
-    border-color: #ec4a58;
+    color: #ffffff;
+    background-color: #6d88c2;
+    border-color: #6d88c2;
 }
 .btn.btn-secondary {
   color: #ffffff;
@@ -24954,3 +24954,20 @@ div.dataTables_wrapper div.dataTables_filter {
   border-radius: 15px;
 }
 /*# sourceMappingURL=ekka.css.map */
+
+
+/* ------------------------ my code ------------------------*/
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 2s forwards;
+    -webkit-animation: fadeOut 2s forwards; /* Safari and Chrome */
+}

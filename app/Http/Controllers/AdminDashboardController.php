@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminDashboard\AddUserRequest;
+use App\Http\Requests\AdminDashboard\updateUserRequest;
 use App\Http\Requests\Auth\registerRequest;
 use App\Http\Services\AdminDashboardService;
 use App\Http\Services\ImageService;
@@ -35,5 +36,11 @@ class AdminDashboardController extends Controller
     public function users_profile(){
         $user = $this->adminDashService->getUser();
         return view('dashboard.adminDashboard.layouts.content.users.users_profile',compact('user'));
+    }
+    public function userUpdate(updateUserRequest $request, $user_id){
+        $validatedData = $request->validated();
+        $data = $this->imageService->profileUser($validatedData);
+        $this->adminDashService->userUpdate($data, $user_id);
+        return redirect()->back();
     }
 }

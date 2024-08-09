@@ -23,20 +23,17 @@
                 <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link ec-drop" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                        <img src="/dashboard/adminDashboard/img/user/user.png" class="user-image" alt="User Image" />
+                        <img src="{{ asset('/storage/' . Auth::user()->profile) }}" class="user-image" alt="User Image" />
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right ec-dropdown-menu">
                         <!-- User image -->
                         <li class="dropdown-header">
-                            <img src="/dashboard/adminDashboard/img/user/user.png" class="img-circle" alt="User Image" />
-                            <div class="d-inline-block">
-                                John Deo <small class="pt-1">john.example@gmail.com</small>
+                            <img src="{{ asset('/storage/' . Auth::user()->profile) }}" class="img-circle" alt="User Image" />
+                            <div class="d-inline-block">{{Auth::user()->username}}<small class="pt-1">{{Auth::user()->email}}</small>
                             </div>
                         </li>
                         <li>
-                            <a href="user-profile.html">
-                                <i class="mdi mdi-account"></i> My Profile
-                            </a>
+                            <a href="{{url('/admin_dashboard/users_profile')}}"><i class="mdi mdi-account"></i> My Profile</a>
                         </li>
                         <li>
                             <a href="#">

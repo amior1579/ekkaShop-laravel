@@ -23,5 +23,10 @@ class AdminDashboardService{
     {
         return Auth::user();
     }
+    public function userUpdate($data, $user_id)
+    {
+        return $this->authRepository->UpdateUser($data, $user_id);
+
+    }
 
 }

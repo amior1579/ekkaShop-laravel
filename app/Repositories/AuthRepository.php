@@ -27,4 +27,8 @@ class AuthRepository
         $user = $this->findUser($user_id);
         return $user ? $user->delete() : null;
     }
+    public function UpdateUser(array $data, $user_id){
+        $user = $this->findUser($user_id);
+        return $user ? $user->update($data) : null;
+    }
 }
