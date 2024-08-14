@@ -7,14 +7,17 @@ use App\Http\Services\Auth\AuthService;
 use App\Http\Services\Auth\Strategy\Auth\ApiAuthStrategy;
 use App\Http\Services\Auth\Strategy\Auth\WebAuthStrategy;
 use App\Http\Services\ImageService;
+use App\Repositories\AuthRepository;
 use Illuminate\Http\Request;
 
 class ApiAuthController extends Controller{
     protected AuthService $authService;
-    protected ImageService $imageService;
-    public function __construct(ImageService $imageService,){
-        $this->imageService = $imageService;
-        $this->authService = new AuthService(new ApiAuthStrategy());
+    public function __construct(){
+        $this->authService = new AuthService(
+            new ApiAuthStrategy(),
+            new ImageService,
+            new AuthRepository()
+        );
 
     }
     public function user_login(loginRequest $request){
@@ -25,9 +28,11 @@ class ApiAuthController extends Controller{
     public function user_register(registerRequest $request)
     {
         $validatedData = $request->validated();
-        $data = $this->imageService->profileUser($validatedData);
-        $this->authService->register($data);
-        return redirect('/login')->with('success', 'User registered successfully.');
+        return $this->authService->register($validatedData);
+
+//        $data = $this->imageService->profileUser($validatedData);
+//        $this->authService->register($data);
+//        return redirect('/login')->with('success', 'User registered successfully.');
 
     }
 

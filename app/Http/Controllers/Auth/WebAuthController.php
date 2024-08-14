@@ -8,15 +8,18 @@ use App\Http\Requests\Auth\registerRequest;
 use App\Http\Services\Auth\AuthService;
 use App\Http\Services\Auth\Strategy\Auth\WebAuthStrategy;
 use App\Http\Services\ImageService;
+use App\Repositories\AuthRepository;
 use Illuminate\Http\Request;
 
 class WebAuthController extends Controller
 {
     protected $authService;
-    protected $imageService;
-    public function __construct(ImageService $imageService,){
-        $this->imageService = $imageService;
-        $this->authService = new AuthService(new WebAuthStrategy());
+    public function __construct(){
+        $this->authService = new AuthService(
+            new WebAuthStrategy(),
+            new ImageService(),
+            new AuthRepository()
+        );
 
     }
     public function user_login(loginRequest $request)
@@ -29,9 +32,7 @@ class WebAuthController extends Controller
     public function user_register(registerRequest $request)
     {
         $validatedData = $request->validated();
-        $data = $this->imageService->profileUser($validatedData);
-        $this->authService->register($data);
-        return redirect('/login')->with('success', 'User registered successfully.');
+        return $this->authService->register($validatedData);
 
     }
 

@@ -20,6 +20,6 @@ Route::post('/admin_dashboard/users_profile/userUpdate/{user_id}', [AdminDashboa
 
 
 
-Route::post('user_register',[WebAuthController::class,'user_register']);
 Route::post('user_login',[WebAuthController::class,'user_login']);
+Route::post('user_register',[WebAuthController::class,'user_register']);
 Route::get('user_delete/{user_id}',[WebAuthController::class,'user_delete']);

@@ -5,19 +5,25 @@ namespace App\Http\Services\Auth;
 use App\Http\Services\Auth\Strategy\Auth\ApiAuthStrategy;
 use App\Http\Services\Auth\Strategy\Auth\AuthStrategyInterface;
 use App\Http\Services\Auth\Strategy\Auth\WebAuthStrategy;
+use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
 use Illuminate\Support\Facades\Auth;
 
 class AuthService{
 //    protected $authRepository;
     protected AuthStrategyInterface $strategy;
+    protected ImageService $imageService;
+    protected AuthRepository $authRepository;
+
 
     public function __construct(
-//        AuthRepository  $authRepository,
-        AuthStrategyInterface $strategy)
+        AuthStrategyInterface $strategy,
+        ImageService $imageService,
+        AuthRepository $authRepository)
     {
-//        $this->authRepository = $authRepository;
         $this->strategy = $strategy;
+        $this->imageService = $imageService;
+        $this->authRepository = $authRepository;
 
     }
     public function login(array $data)
@@ -26,10 +32,13 @@ class AuthService{
 
     }
 
-//    public function register(array $data)
-//    {
-//        return $this->authRepository->createUser($data);
-//    }
+    public function register(array $data)
+    {
+        $newData = $this->imageService->profileUser($data);
+        $user = $this->authRepository->createUser($newData);
+        return $this->strategy->register($user);
+
+    }
 //    public function delete($user_id)
 //    {
 //        if ($this->authRepository->deleteUser($user_id)){

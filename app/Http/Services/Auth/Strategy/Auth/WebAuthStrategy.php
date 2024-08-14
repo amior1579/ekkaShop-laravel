@@ -14,9 +14,9 @@ class WebAuthStrategy extends BaseAuthStrategy
         }
         return back()->withErrors(['loginError' => 'The username or password is incorrect.',]);
     }
-    public function register(array $data)
+    public function register($data)
     {
-//        return $this->authService->register($data);
+        return redirect('/login')->with('success', 'User registered successfully.');
     }
 
 

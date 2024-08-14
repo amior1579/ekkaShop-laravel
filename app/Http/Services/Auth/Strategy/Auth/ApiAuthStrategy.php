@@ -25,10 +25,14 @@ class ApiAuthStrategy extends BaseAuthStrategy
     }
 
 
-    public function register(array $data)
+    public function register($data)
     {
-    $this->authService->register($data);
-    return response()->json(['message' => 'User registered successfully.'], 201);
+        if ($data){
+            return response()->json([
+                'User' => new AuthResource($data),
+            ]);
+        }
+        throw new ApiAuthException();
     }
 
 
