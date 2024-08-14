@@ -18,7 +18,7 @@
                 <div class="ec-login-wrapper">
                     <div class="ec-login-container">
                         <div class="ec-login-form">
-                            @error('login')
+                            @error('loginError')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <form action="{{url('user_login')}}" method="post" enctype="multipart/form-data">
