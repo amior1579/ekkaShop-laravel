@@ -1,24 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\loginRequest;
 use App\Http\Requests\Auth\registerRequest;
-use App\Http\Services\AuthService;
+use App\Http\Services\Auth\AuthService;
+use App\Http\Services\Auth\Strategy\Auth\WebAuthStrategy;
 use App\Http\Services\ImageService;
 use Illuminate\Http\Request;
 
-class AuthController extends Controller
+class WebAuthController extends Controller
 {
     protected $authService;
     protected $imageService;
-    public function __construct(
-        AuthService $authService,
-        ImageService $imageService,
-    )
-    {
-        $this->authService = $authService;
+    public function __construct(ImageService $imageService,){
         $this->imageService = $imageService;
+        $this->authService = new AuthService(new WebAuthStrategy());
+
+    }
+    public function user_login(loginRequest $request)
+    {
+        $validatedData = $request->validated();
+        return $this->authService->login($validatedData);
+
     }
 
     public function user_register(registerRequest $request)
@@ -30,16 +35,6 @@ class AuthController extends Controller
 
     }
 
-    public function user_login(loginRequest $request)
-    {
-        $validatedData = $request->validated();
-        $user = $this->authService->login($validatedData);
-        if ($user) {
-            return redirect('/');
-        } else {
-            return redirect()->back()->withErrors(['login' => 'Invalid credentials'])->withInput();
-        }
-    }
     public function user_delete(Request $request)
     {
         return $this->authService->delete($request->user_id);

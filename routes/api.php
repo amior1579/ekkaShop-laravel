@@ -1,13 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\ApiAuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/user_register',[AuthController::class,'user_register']);
-Route::post('/user_login',[AuthController::class,'user_login']);
-Route::get('/user_delete/{user_id}',[AuthController::class,'user_delete']);
+Route::post('/user_login',[ApiAuthController::class,'user_login']);
+Route::post('/user_register',[ApiAuthController::class,'user_register']);
+Route::get('/user_delete/{user_id}',[ApiAuthController::class,'user_delete']);
 
 
 Route::get('/admin_dashboard', function () {return view('dashboard.adminDashboard.layouts.content.index');});

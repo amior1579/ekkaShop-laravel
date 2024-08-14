@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\WebAuthController;
 use Illuminate\Support\Facades\Route;
 
 // ------- shop View -------
@@ -20,6 +20,6 @@ Route::post('/admin_dashboard/users_profile/userUpdate/{user_id}', [AdminDashboa
 
 
 
-Route::post('user_register',[AuthController::class,'user_register']);
-Route::post('user_login',[AuthController::class,'user_login']);
-Route::get('user_delete/{user_id}',[AuthController::class,'user_delete']);
+Route::post('user_register',[WebAuthController::class,'user_register']);
+Route::post('user_login',[WebAuthController::class,'user_login']);
+Route::get('user_delete/{user_id}',[WebAuthController::class,'user_delete']);
