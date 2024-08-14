@@ -1,22 +1,27 @@
 <?php
 namespace App\Http\Services\Auth\Strategy\Auth;
-//use App\Http\Services\Strategy\Auth\AuthService;
+
+use App\Http\Resources\AuthResource;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use App\Exceptions\ApiAuthException;
 
 class ApiAuthStrategy extends BaseAuthStrategy
 {
 
-    public function login(array $data)
+    /**
+     * @throws ApiAuthException
+     */
+    public function login(array $data): JsonResponse
     {
-
-        if ($user = $this->attemptLogin($data)) {
+        if ($user = $this->attemptLogin($data)){
             $token = $user->createToken('token')->plainTextToken;
             return response()->json([
-                'access_token' => $token,
-                'User' => $user,
+                'Token' => $token,
+                'User' => new AuthResource($user),
             ]);
         }
-        return response()->json(['error' => 'Unauthorized'], 401);
+        throw new ApiAuthException('The username or password is incorrect.');
     }
 
 

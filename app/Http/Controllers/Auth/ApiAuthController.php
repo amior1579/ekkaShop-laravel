@@ -10,18 +10,16 @@ use App\Http\Services\ImageService;
 use Illuminate\Http\Request;
 
 class ApiAuthController extends Controller{
-    protected $authService;
-    protected $imageService;
+    protected AuthService $authService;
+    protected ImageService $imageService;
     public function __construct(ImageService $imageService,){
         $this->imageService = $imageService;
         $this->authService = new AuthService(new ApiAuthStrategy());
 
     }
-    public function user_login(loginRequest $request)
-    {
+    public function user_login(loginRequest $request){
         $validatedData = $request->validated();
         return $this->authService->login($validatedData);
-
     }
 
     public function user_register(registerRequest $request)

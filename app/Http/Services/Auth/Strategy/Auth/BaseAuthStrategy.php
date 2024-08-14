@@ -5,7 +5,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 abstract class BaseAuthStrategy implements AuthStrategyInterface{
-    protected function attemptLogin(array $data): ?User
+    protected function attemptLogin(array $data): User|null
     {
         if (Auth::attempt($data)){
             return Auth::user();

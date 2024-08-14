@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthService{
 //    protected $authRepository;
-    protected $strategy;
+    protected AuthStrategyInterface $strategy;
 
     public function __construct(
 //        AuthRepository  $authRepository,
