@@ -39,12 +39,13 @@ class AuthService{
         return $this->strategy->register($user);
 
     }
-//    public function delete($user_id)
-//    {
-//        if ($this->authRepository->deleteUser($user_id)){
+    public function delete(int $user_id)
+    {
+        $user = $this->authRepository->deleteUser($user_id);
+        return $this->strategy->delete($user);
 //            return redirect()->back()->withErrors(['message' => 'User deleted successfully']);
 //        }
 //        return response()->json(['message' => 'User Not found'], 404);
-//    }
+    }
 
 }

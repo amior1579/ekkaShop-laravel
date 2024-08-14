@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/user_login',[ApiAuthController::class,'user_login']);
 Route::post('/user_register',[ApiAuthController::class,'user_register']);
-Route::get('/user_delete/{user_id}',[ApiAuthController::class,'user_delete']);
+Route::post('/user_delete/{user_id}',[ApiAuthController::class,'user_delete']);
 
 
 Route::get('/admin_dashboard', function () {return view('dashboard.adminDashboard.layouts.content.index');});

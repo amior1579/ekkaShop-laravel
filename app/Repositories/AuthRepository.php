@@ -13,17 +13,23 @@ use App\Models\User;
 
 class AuthRepository
 {
-    public function findUser($user_id){
-        return User::find($user_id);
+    public function findUser($user_id): User|null
+    {
+        if ($user = User::find($user_id)){
+            return $user;
+        }
+        return null;
     }
-    public function createUser(array $data){
+    public function createUser(array $data): User
+    {
         return User::create($data);
     }
 
     public function allUser(){
         return User::all();
     }
-    public function deleteUser($user_id){
+    public function deleteUser($user_id)
+    {
         $user = $this->findUser($user_id);
         return $user ? $user->delete() : null;
     }

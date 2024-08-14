@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 class WebAuthController extends Controller
 {
-    protected $authService;
+    protected AuthService $authService;
     public function __construct(){
         $this->authService = new AuthService(
             new WebAuthStrategy(),
@@ -22,22 +22,17 @@ class WebAuthController extends Controller
         );
 
     }
-    public function user_login(loginRequest $request)
-    {
+    public function user_login(loginRequest $request){
         $validatedData = $request->validated();
         return $this->authService->login($validatedData);
-
     }
 
-    public function user_register(registerRequest $request)
-    {
+    public function user_register(registerRequest $request){
         $validatedData = $request->validated();
         return $this->authService->register($validatedData);
-
     }
 
-    public function user_delete(Request $request)
-    {
+    public function user_delete(Request $request){
         return $this->authService->delete($request->user_id);
     }
 }

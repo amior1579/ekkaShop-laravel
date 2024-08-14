@@ -36,9 +36,11 @@ class ApiAuthStrategy extends BaseAuthStrategy
     }
 
 
-    public function delete(int $userId)
+    public function delete($user)
     {
-    $this->authService->delete($userId);
-    return response()->json(['message' => 'User deleted successfully.'], 200);
+        if ($user){
+            return response()->json(['message' => 'User deleted successfully']);
+        }
+        throw new ApiAuthException();
     }
 }
