@@ -1,11 +1,11 @@
-@extends('dashboard.adminDashboard.main')
+@extends('dashboard.main')
 
 @section('title')
     <title>Dashboard</title>
 @endsection
 
 @section('contents')
-    <div class="ec-content-wrapper dashbord">
+    <div class="ec-content-wrapper dashboard">
         <div class="content">
             <!-- Top Statistics -->
             <div class="row">
@@ -98,11 +98,14 @@
                                 <div class="p-20">
                                     <ul class="d-flex flex-column justify-content-between">
                                         <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2"
-                                                            style="color: #4c84ff"></i>Order Completed</li>
+                                                            style="color: #4c84ff"></i>Order Completed
+                                        </li>
                                         <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2"
-                                                            style="color: #80e1c1 "></i>Order Unpaid</li>
+                                                            style="color: #80e1c1 "></i>Order Unpaid
+                                        </li>
                                         <li><i class="mdi mdi-checkbox-blank-circle-outline mr-2"
-                                               style="color: #ff7b7b "></i>Order returned</li>
+                                               style="color: #ff7b7b "></i>Order returned
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -110,11 +113,14 @@
                                 <div class="p-20">
                                     <ul class="d-flex flex-column justify-content-between">
                                         <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2"
-                                                            style="color: #8061ef"></i>Order Pending</li>
+                                                            style="color: #8061ef"></i>Order Pending
+                                        </li>
                                         <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2"
-                                                            style="color: #ffa128"></i>Order Canceled</li>
+                                                            style="color: #ffa128"></i>Order Canceled
+                                        </li>
                                         <li><i class="mdi mdi-checkbox-blank-circle-outline mr-2"
-                                               style="color: #7be6ff"></i>Order Broken</li>
+                                               style="color: #7be6ff"></i>Order Broken
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -656,7 +662,8 @@
                             <div class="row media d-flex pt-15px pb-15px">
                                 <div
                                     class="col-lg-3 col-md-3 col-2 media-image align-self-center rounded">
-                                    <a href="#"><img src="dashboard/adminDashboard/img/products/p1.jpg" alt="customer image"></a>
+                                    <a href="#"><img src="dashboard/adminDashboard/img/products/p1.jpg"
+                                                     alt="customer image"></a>
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-10 media-body align-self-center ec-pos">
                                     <a href="#">
@@ -674,7 +681,8 @@
                             <div class="row media d-flex pt-15px pb-15px">
                                 <div
                                     class="col-lg-3 col-md-3 col-2 media-image align-self-center rounded">
-                                    <a href="#"><img src="dashboard/adminDashboard/img/products/p2.jpg" alt="customer image"></a>
+                                    <a href="#"><img src="dashboard/adminDashboard/img/products/p2.jpg"
+                                                     alt="customer image"></a>
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-10 media-body align-self-center ec-pos">
                                     <a href="#">
@@ -692,7 +700,8 @@
                             <div class="row media d-flex pt-15px pb-15px">
                                 <div
                                     class="col-lg-3 col-md-3 col-2 media-image align-self-center rounded">
-                                    <a href="#"><img src="dashboard/adminDashboard/img/products/p3.jpg" alt="customer image"></a>
+                                    <a href="#"><img src="dashboard/adminDashboard/img/products/p3.jpg"
+                                                     alt="customer image"></a>
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-10 media-body align-self-center ec-pos">
                                     <a href="#">

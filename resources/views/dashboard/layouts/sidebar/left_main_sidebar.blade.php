@@ -13,8 +13,8 @@
             <!-- sidebar menu -->
             <ul class="nav sidebar-inner" id="sidebar-menu">
                 <!-- Dashboard -->
-                <li class="" id="dashbord">
-                    <a class="sidenav-item-link" href="{{url('admin_dashboard')}}">
+                <li class="" id="dashboard">
+                    <a class="sidenav-item-link" href="{{route('dashboard-index')}}">
                         <i class="mdi mdi-view-dashboard-outline"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -30,12 +30,12 @@
                     <div class="collapse" id="users-collapse">
                         <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
                             <li class="" id="user-list">
-                                <a class="sidenav-item-link " href="{{url('admin_dashboard/users_list')}}">
+                                <a class="sidenav-item-link " href="{{route('dashboard-user_list')}}">
                                     <span class="nav-text">User List</span>
                                 </a>
                             </li>
                             <li class="" id="users-profile">
-                                <a class="sidenav-item-link" href="{{url('admin_dashboard/users_profile')}}">
+                                <a class="sidenav-item-link" href="{{route('dashboard-users_profile')}}">
                                     <span class="nav-text">Users Profile</span>
                                 </a>
                             </li>

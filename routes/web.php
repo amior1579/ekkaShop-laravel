@@ -15,11 +15,12 @@ Route::get('/login', function () {return view('shop.layouts.content.login');});
 
 
 // ------- admin dashboard View -------
-Route::prefix('admin_dashboard')->group(function () {
-    Route::get('/', function () {return view('dashboard.adminDashboard.layouts.content.index');});
-    Route::get('/users_list', [AdminDashboardController::class, 'users_list']);
+Route::prefix('/dashboard')->group(function () {
+    Route::get('/home', function () {return view('dashboard.layouts.content.index');})->name('dashboard-index');;
+    Route::get('/users_list', [AdminDashboardController::class, 'users_list'])->name('dashboard-user_list');
+    Route::get('/users_profile', [AdminDashboardController::class, 'users_profile'])->name('dashboard-users_profile');
+
     Route::post('/users_list/addUser', [AdminDashboardController::class, 'addUser']);
-    Route::get('/users_profile', [AdminDashboardController::class, 'users_profile']);
     //Route::get('/users_profile/{user_id}', [AdminDashboardController::class,'users_profile']);
     Route::post('/users_profile/userUpdate/{user_id}', [AdminDashboardController::class, 'userUpdate']);
 });

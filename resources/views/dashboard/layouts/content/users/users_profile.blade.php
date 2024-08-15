@@ -1,4 +1,4 @@
-@extends('dashboard.adminDashboard.main')
+@extends('dashboard.main')
 
 @section('title')
     <title>Dashboard | Users profile</title>
@@ -10,7 +10,7 @@
             <div class="breadcrumb-wrapper breadcrumb-contacts">
                 <div>
                     <h1>User Profile</h1>
-                    <p class="breadcrumbs"><span><a href="{{url('admin_dashboard')}}">Home</a></span>
+                    <p class="breadcrumbs"><span><a href="{{route('dashboard-index')}}">Home</a></span>
                         <span><i class="mdi mdi-chevron-right"></i></span>Profile
                     </p>
                 </div>
@@ -91,12 +91,14 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="settings-tab" data-bs-toggle="tab"
                                             data-bs-target="#settings" type="button" role="tab"
-                                            aria-controls="settings" aria-selected="true">Settings</button>
+                                            aria-controls="settings" aria-selected="true">Settings
+                                    </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
                                             data-bs-target="#profile" type="button" role="tab"
-                                            aria-controls="profile" aria-selected="false">Profile</button>
+                                            aria-controls="profile" aria-selected="false">Profile
+                                    </button>
                                 </li>
                             </ul>
 
@@ -105,16 +107,22 @@
                                 <div class="tab-pane fade show active" id="settings" role="tabpanel"
                                      aria-labelledby="settings-tab">
                                     <div class="tab-pane-content mt-5">
-                                        <form class="form-update-class" method="post" action="{{url('admin_dashboard/users_profile/userUpdate/'. $user->id)}}" enctype="multipart/form-data">
+                                        <form class="form-update-class" method="post"
+                                              action="{{url('admin_dashboard/users_profile/userUpdate/'. $user->id)}}"
+                                              enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group row mb-6">
                                                 <label for="coverImage"
                                                        class="col-sm-4 col-lg-2 col-form-label">User Image</label>
                                                 <div class="col-sm-8 col-lg-10">
                                                     <div class="custom-file mb-1">
-                                                        <input type="file" class="custom-file-input" id="coverImage" name="profile" value="{{$user->profile}}">
-                                                        <label class="custom-file-label" for="coverImage">Choose file...</label>
-                                                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                                        <input type="file" class="custom-file-input" id="coverImage"
+                                                               name="profile" value="{{$user->profile}}">
+                                                        <label class="custom-file-label" for="coverImage">Choose
+                                                            file...</label>
+                                                        <div class="invalid-feedback">Example invalid custom file
+                                                            feedback
+                                                        </div>
                                                     </div>
                                                     @error('profile')
                                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -126,14 +134,16 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label for="Username">Username</label>
-                                                        <input type="text" class="form-control" name="username" id="Username" value="{{$user->username}}" disabled>
+                                                        <input type="text" class="form-control" name="username"
+                                                               id="Username" value="{{$user->username}}" disabled>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label for="name">Name</label>
-                                                        <input type="text" class="form-control" name="name" id="name" value="{{$user->name}}">
+                                                        <input type="text" class="form-control" name="name" id="name"
+                                                               value="{{$user->name}}">
                                                     </div>
                                                     @error('name')
                                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -142,7 +152,8 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label for="email">Name</label>
-                                                        <input type="email" class="form-control" name="email" id="email" value="{{$user->email}}">
+                                                        <input type="email" class="form-control" name="email" id="email"
+                                                               value="{{$user->email}}">
                                                     </div>
                                                     @error('email')
                                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -151,7 +162,8 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label for="phoneNumber">Phone number</label>
-                                                        <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="{{$user->phoneNumber}}">
+                                                        <input type="text" class="form-control" name="phoneNumber"
+                                                               id="phoneNumber" value="{{$user->phoneNumber}}">
                                                     </div>
                                                     @error('phoneNumber')
                                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -160,20 +172,39 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label for="status">Status</label>
-                                                        <select class="form-control user-status" id="status" name="status" >
-                                                            <option value="active" {{ $user->status == 'active' ? 'selected' : '' }}>Active</option>
-                                                            <option value="inactive" {{ $user->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
-                                                            <option value="pending" {{ $user->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                                                        <select class="form-control user-status" id="status"
+                                                                name="status">
+                                                            <option
+                                                                value="active" {{ $user->status == 'active' ? 'selected' : '' }}>
+                                                                Active
+                                                            </option>
+                                                            <option
+                                                                value="inactive" {{ $user->status == 'inactive' ? 'selected' : '' }}>
+                                                                Inactive
+                                                            </option>
+                                                            <option
+                                                                value="pending" {{ $user->status == 'pending' ? 'selected' : '' }}>
+                                                                Pending
+                                                            </option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label for="role">Role</label>
-                                                        <select class="form-control user-role" id="role" name="role" >
-                                                            <option value="customer" {{ $user->role == 'customer' ? 'selected' : '' }}>Customer</option>
-                                                            <option value="seller" {{ $user->role == 'seller' ? 'selected' : '' }}>Seller</option>
-                                                            <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                                                        <select class="form-control user-role" id="role" name="role">
+                                                            <option
+                                                                value="customer" {{ $user->role == 'customer' ? 'selected' : '' }}>
+                                                                Customer
+                                                            </option>
+                                                            <option
+                                                                value="seller" {{ $user->role == 'seller' ? 'selected' : '' }}>
+                                                                Seller
+                                                            </option>
+                                                            <option
+                                                                value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>
+                                                                Admin
+                                                            </option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -181,7 +212,8 @@
 
                                             <div class="form-group mb-4">
                                                 <label for="oldPassword">Old password</label>
-                                                <input type="password" class="form-control" name="old_password" id="oldPassword">
+                                                <input type="password" class="form-control" name="old_password"
+                                                       id="oldPassword">
                                                 @error('old_password')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -189,7 +221,8 @@
 
                                             <div class="form-group mb-4">
                                                 <label for="newPassword">New password</label>
-                                                <input type="password" class="form-control" name="password" id="newPassword">
+                                                <input type="password" class="form-control" name="password"
+                                                       id="newPassword">
                                                 @error('password')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -197,7 +230,8 @@
 
                                             <div class="form-group mb-4">
                                                 <label for="conPassword">Confirm password</label>
-                                                <input type="password" class="form-control" name="password_confirmation" id="conPassword">
+                                                <input type="password" class="form-control" name="password_confirmation"
+                                                       id="conPassword">
                                                 @error('password_confirmation')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -206,7 +240,8 @@
                                             <div class="d-flex justify-content-end mt-5">
                                                 <button type="submit"
                                                         class="btn btn-primary mb-2 btn-pill">Update
-                                                    Profile</button>
+                                                    Profile
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
@@ -426,4 +461,5 @@
                 </div>
             </div>
         </div> <!-- End Content -->
-    </div> @endsection
+    </div>
+@endsection

@@ -24,7 +24,7 @@ class AdminDashboardController extends Controller
 
     public function users_list(){
         $AllUsers = $this->adminDashService->getAllUsers();
-        return view('dashboard.adminDashboard.layouts.content.users.users_list',compact('AllUsers'));
+        return view('dashboard.layouts.content.users.users_list',compact('AllUsers'));
     }
 
     public function addUser(AddUserRequest $request){
@@ -35,7 +35,7 @@ class AdminDashboardController extends Controller
     }
     public function users_profile(){
         $user = $this->adminDashService->getUser();
-        return view('dashboard.adminDashboard.layouts.content.users.users_profile',compact('user'));
+        return view('dashboard.layouts.content.users.users_profile',compact('user'));
     }
     public function userUpdate(updateUserRequest $request, $user_id){
         $validatedData = $request->validated();
