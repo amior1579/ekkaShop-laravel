@@ -24971,3 +24971,22 @@ div.dataTables_wrapper div.dataTables_filter {
     animation: fadeOut 2s forwards;
     -webkit-animation: fadeOut 2s forwards; /* Safari and Chrome */
 }
+
+
+/*------------------- User deleted successful message ------------------- */
+.floating-message {
+    position: fixed;
+    top: -100px; /* ابتدا پیام خارج از دید است */
+    left: 50%;
+    transform: translateX(-50%) scale(0.9); /* مقیاس کوچک‌تر برای شروع */
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none; /* مخفی کردن ابتدایی پیام برای نمایش با انیمیشن */
+    opacity: 0; /* شروع با شفافیت صفر */
+    transition: all 0.5s ease; /* انیمیشن نرم برای تمام تغییرات */
+}
+

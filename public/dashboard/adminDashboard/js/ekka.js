@@ -356,4 +356,13 @@ $(document).ready(function () {
         }
     });
 
+    // ------------------------------ User deleted successful message ------------------------------
+    $('#success-message').css('display', 'block')
+        .animate({ top: '20px', opacity: 1, scale: 1 }, 200);
+
+    setTimeout(function() {
+        $('#success-message').animate({ top: '-100px', opacity: 0, scale: 0.9 }, 500, function() {
+            $(this).remove(); // حذف پیام از DOM بعد از محو شدن کامل
+        });
+    }, 2000);
 });

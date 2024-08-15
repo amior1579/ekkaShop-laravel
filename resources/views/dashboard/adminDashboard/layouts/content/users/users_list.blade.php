@@ -7,6 +7,11 @@
 @section('contents')
     <div class="ec-content-wrapper users-menu user-list ">
         <div class="content">
+            @if(session('message'))
+                <div id="success-message" class="floating-message">
+                    {{ session('message') }}
+                </div>
+            @endif
             <div class="breadcrumb-wrapper breadcrumb-contacts">
                 <div>
                     <h1>User List</h1>
