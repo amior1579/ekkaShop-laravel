@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\Dashboard\ApiDashboardController;
 use App\Http\Controllers\Auth\ApiAuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,9 +9,13 @@ Route::post('/user_register',[ApiAuthController::class,'user_register']);
 Route::post('/user_delete/{user_id}',[ApiAuthController::class,'user_delete']);
 
 
-Route::get('/admin_dashboard', function () {return view('dashboard.adminDashboard.layouts.content.index');});
-Route::get('/admin_dashboard/users_list', [AdminDashboardController::class,'users_list']);
-Route::post('/admin_dashboard/users_list/addUser', [AdminDashboardController::class,'addUser']);
-Route::get('/admin_dashboard/users_profile', [AdminDashboardController::class,'users_profile']);
-Route::get('/admin_dashboard/users_profile/{user_id}', [AdminDashboardController::class,'users_profile']);
-Route::post('/admin_dashboard/users_profile/userUpdate/{user_id}', [AdminDashboardController::class,'userUpdate']);
+// ------- dashboard -------
+Route::prefix('/dashboard')->group(function () {
+    Route::get('/home', [ApiDashboardController::class, 'home'])->name('dashboard-index');;
+    Route::get('/users_list', [ApiDashboardController::class, 'users_list'])->name('dashboard-user_list');
+    Route::get('/users_profile', [ApiDashboardController::class, 'users_profile'])->name('dashboard-users_profile');
+
+    Route::post('/users_list/addUser', [ApiDashboardController::class, 'addUser']);
+    //Route::get('/users_profile/{user_id}', [ApiDashboardController::class,'users_profile']);
+    Route::post('/users_profile/userUpdate/{user_id}', [ApiDashboardController::class, 'userUpdate']);
+});

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminDashboard\AddUserRequest;
 use App\Http\Requests\AdminDashboard\updateUserRequest;
 use App\Http\Requests\Auth\registerRequest;
@@ -9,7 +10,7 @@ use App\Http\Services\AdminDashboardService;
 use App\Http\Services\ImageService;
 use Illuminate\Http\Request;
 
-class AdminDashboardController extends Controller
+class ApiDashboardController extends Controller
 {
     protected $adminDashService;
     protected $imageService;
@@ -20,6 +21,11 @@ class AdminDashboardController extends Controller
     {
         $this->adminDashService = $adminDashService;
         $this->imageService = $imageService;
+    }
+
+    public function home()
+    {
+
     }
 
     public function users_list(){
