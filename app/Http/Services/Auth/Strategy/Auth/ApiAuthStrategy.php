@@ -25,7 +25,10 @@ class ApiAuthStrategy extends BaseAuthStrategy
     }
 
 
-    public function register($data)
+    /**
+     * @throws ApiAuthException
+     */
+    public function register($data): JsonResponse
     {
         if ($data){
             return response()->json([
@@ -36,7 +39,10 @@ class ApiAuthStrategy extends BaseAuthStrategy
     }
 
 
-    public function delete($user)
+    /**
+     * @throws ApiAuthException
+     */
+    public function delete($user): JsonResponse
     {
         if ($user){
             return response()->json(['message' => 'User deleted successfully']);

@@ -20,7 +20,7 @@ class AuthRepository
         }
         return null;
     }
-    public function createUser(array $data): User
+    public function createUser($data): User
     {
         return User::create($data);
     }
@@ -28,13 +28,13 @@ class AuthRepository
     public function allUser(){
         return User::all();
     }
-    public function deleteUser($user_id)
+    public function deleteUser($user_id): true|null
     {
         $user = $this->findUser($user_id);
-        return $user ? $user->delete() : null;
+        return $user ?->delete();
     }
     public function UpdateUser(array $data, $user_id){
         $user = $this->findUser($user_id);
-        return $user ? $user->update($data) : null;
+        return $user?->update($data);
     }
 }
