@@ -12,7 +12,7 @@ Route::post('/user_delete/{user_id}',[ApiAuthController::class,'user_delete']);
 // ------- dashboard -------
 Route::prefix('/dashboard')->group(function () {
     Route::get('/home', [ApiDashboardController::class, 'home'])->name('dashboard-index');;
-    Route::get('/users_list', [ApiDashboardController::class, 'users_list'])->name('dashboard-user_list');
+    Route::get('/users_list', [ApiDashboardController::class, 'users_list']);
     Route::get('/users_profile', [ApiDashboardController::class, 'users_profile'])->name('dashboard-users_profile');
 
     Route::post('/users_list/addUser', [ApiDashboardController::class, 'addUser']);

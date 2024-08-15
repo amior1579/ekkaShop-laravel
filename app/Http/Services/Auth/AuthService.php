@@ -2,9 +2,8 @@
 
 namespace App\Http\Services\Auth;
 
-use App\Http\Services\Auth\Strategy\Auth\ApiAuthStrategy;
 use App\Http\Services\Auth\Strategy\Auth\AuthStrategyInterface;
-use App\Http\Services\Auth\Strategy\Auth\WebAuthStrategy;
+use App\Http\Services\Auth\Strategy\Auth\WebDashboardStrategy;
 use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
 use Illuminate\Support\Facades\Auth;
