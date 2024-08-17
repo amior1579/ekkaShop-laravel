@@ -4,6 +4,7 @@ namespace App\Http\Services\Dashboard;
 use App\Http\Services\Dashboard\Strategy\DashboardStrategyInterface;
 use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardService{
 
@@ -25,13 +26,14 @@ class DashboardService{
         $users = $this->authRepository->allUser();
         return $this->strategy->getAllUsers($users);
     }
+    public function AuthUser()
+    {
+        $user = Auth::user();
+        return $this->strategy->AuthUser($user);
+    }
 //    public function addUser($data)
 //    {
 //        return $this->authRepository->createUser($data);
-//    }
-//    public function getUser()
-//    {
-//        return Auth::user();
 //    }
 //    public function userUpdate($data, $user_id)
 //    {

@@ -20,13 +20,11 @@ class WebDashboardController extends Controller
             new AuthRepository()
         );
     }
-
-//    public function home()
-//    {
-//
-//    }
     public function users_list(){
         return $this->dashboardService->getAllUsers();
+    }
+    public function users_profile(){
+        return $this->dashboardService->AuthUser();
     }
 //
 //    public function addUser(AddUserRequest $request){
@@ -34,10 +32,6 @@ class WebDashboardController extends Controller
 //        $data = $this->imageService->profileUser($validatedData);
 //        $this->adminDashService->addUser($data);
 //        return redirect()->back();
-//    }
-//    public function users_profile(){
-//        $user = $this->adminDashService->getUser();
-//        return view('dashboard.layouts.content.users.users_profile',compact('user'));
 //    }
 //    public function userUpdate(updateUserRequest $request, $user_id){
 //        $validatedData = $request->validated();

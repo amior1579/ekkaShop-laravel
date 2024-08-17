@@ -11,12 +11,13 @@ Route::get('/user_delete/{user_id}',[WebAuthController::class,'user_delete']);
 // ------- shop View -------
 Route::get('/', function () {return view('shop.layouts.content.index');})->name('home');
 Route::get('/register', function () {return view('shop.layouts.content.register');});
-Route::get('/login', function () {return view('shop.layouts.content.login');});
+Route::get('/login', function () {return view('shop.layouts.content.login');})->name('login-form');
 
 
 // ------- admin dashboard View -------
 Route::prefix('/dashboard')->group(function () {
-    Route::get('/home', [WebDashboardController::class, 'home'])->name('dashboard-index');;
+//    Route::get('/home', [WebDashboardController::class, 'home'])->name('dashboard-index');;
+    Route::get('/home', function () {return view('dashboard.layouts.content.index');})->name('dashboard-index');;
     Route::get('/users_list', [WebDashboardController::class, 'users_list'])->name('dashboard-user_list');
     Route::get('/users_profile', [WebDashboardController::class, 'users_profile'])->name('dashboard-users_profile');
 

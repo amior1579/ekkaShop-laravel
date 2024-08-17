@@ -15,7 +15,7 @@ class ApiAuthStrategy extends BaseAuthStrategy
     public function login(array $data): JsonResponse
     {
         if ($user = $this->attemptLogin($data)){
-            $token = $user->createToken('token')->plainTextToken;
+            $token = $user->createToken($user->username)->plainTextToken;
             return response()->json([
                 'Token' => $token,
                 'User' => new AuthResource($user),

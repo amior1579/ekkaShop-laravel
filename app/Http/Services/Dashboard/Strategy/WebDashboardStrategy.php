@@ -2,23 +2,29 @@
 namespace App\Http\Services\Dashboard\Strategy;
 //use App\Http\Services\Strategy\Auth\AuthService;
 use App\Http\Services\Dashboard\Strategy\BaseDashboardStrategy;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 
 class WebDashboardStrategy extends BaseDashboardStrategy
 {
 
-    public function getAllUsers($AllUsers)
+    public function getAllUsers($AllUsers): View|RedirectResponse
     {
         if ($AllUsers) {
             return view('dashboard.layouts.content.users.users_list',compact('AllUsers'));
         }
         return back()->withErrors(['loginError' => 'The username or password is incorrect.',]);
     }
-//    public function register($data): RedirectResponse
-//    {
-//        return redirect('/login')->with('success', 'User registered successfully.');
-//    }
+    public function AuthUser($user): View|RedirectResponse
+    {
+        if ($user){
+            return view('dashboard.layouts.content.users.users_profile',compact('user'));
+        }
+        return redirect()->route('login-form');
+    }
 //
 //
 //    public function delete($user): RedirectResponse
