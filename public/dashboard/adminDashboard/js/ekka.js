@@ -365,4 +365,36 @@ $(document).ready(function () {
             $(this).remove(); // حذف پیام از DOM بعد از محو شدن کامل
         });
     }, 2000);
+
+
+    $('#role').change(function() {
+        if ($(this).val() === 'admin') {
+            $('#admin-permissions').show();
+        } else {
+            $('#admin-permissions').hide();
+        }
+    });
+
+    $('#add_permission').click(function() {
+        var title = $('#permissionName').val();
+        if (title) {
+            // ایجاد یک بخش جدید با عنوان جدید
+            var newSection = `
+                    <div class="col-lg-6" id="admin-permissions">
+                        <label>${title}</label>
+                        <div class="checkbox-group mb-4">
+
+                        </div>
+                    </div>
+                `;
+
+            // اضافه کردن بخش جدید به #admin-permissions
+            $('.modal-body .mb-2').append(newSection);
+
+            // پاک کردن ورودی بعد از اضافه کردن
+            $('#row').val('');
+        } else {
+            alert('Please enter a title.');
+        }
+    });
 });

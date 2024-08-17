@@ -165,11 +165,54 @@
                                             </select>
                                         </div>
                                     </div>
-
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
                                             <label for="password">Password</label>
                                             <input type="password" name="password" class="form-control" id="password">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-4">
+                                            <label for="permissionName">Permission name</label>
+                                            <div class=" input-group">
+                                                <input type="text" name="permissionName" class="form-control" id="permissionName" placeholder="User Management">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" type="button" id="add_permission">
+                                                        +
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+{{--                                    <div id="admin-permissions" style="display: none;">--}}
+                                    <div class="col-lg-6" id="admin-permissions">
+                                        <label>User Management</label>
+                                        <div class="checkbox-group mb-4">
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="view_users">View user list</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[]" value="view_users" id="view_users">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="create_user">Create a new user</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[]" value="create_user" id="create_user">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="edit_user">Edit user profiles</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[]" value="edit_user" id="edit_user">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="delete_user">Delete or deactivate users</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[]" value="delete_user" id="delete_user">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="reset_password">Recover user passwords</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[]" value="reset_password" id="reset_password">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="manage_roles">Set user roles and permissions</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[]" value="manage_roles" id="manage_roles">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -184,7 +227,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div><!-- End Add User Modal -->
         </div> <!-- End Content -->
     </div>
 @endsection

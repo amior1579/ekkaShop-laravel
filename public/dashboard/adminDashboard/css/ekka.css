@@ -19146,6 +19146,14 @@ code {
 .form-group, .input-group {
   margin-bottom: 1.25rem;
 }
+.checkbox-group{
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 15px;
+}
+.input-group-append .btn {
+    border-radius: 0 15px 15px 0
+}
 .form-group label, .input-group label {
   color: #56606e;
   font-size: 15px;
@@ -19153,7 +19161,8 @@ code {
 .form-group .form-control, .input-group .form-control {
   font-size: 15px;
   padding: 0.5rem 1.06rem;
-  border-color: #f3f3f3;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+
 }
 .form-group .form-control.input-lg, .input-group .form-control.input-lg {
   font-size: 1.06rem;
