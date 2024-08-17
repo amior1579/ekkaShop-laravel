@@ -366,6 +366,7 @@ $(document).ready(function () {
         });
     }, 2000);
 
+    // ------------------------------  ------------------------------
 
     $('#role').change(function() {
         if ($(this).val() === 'admin') {
@@ -375,26 +376,46 @@ $(document).ready(function () {
         }
     });
 
+    // ------------------------------  ------------------------------
     $('#add_permission').click(function() {
         var title = $('#permissionName').val();
         if (title) {
             // ایجاد یک بخش جدید با عنوان جدید
             var newSection = `
-                    <div class="col-lg-6" id="admin-permissions">
-                        <label>${title}</label>
-                        <div class="checkbox-group mb-4">
-
+                    <div class="col-lg-6">
+                        <label class="permission_name">${title}</label>
+                        <div class="checkbox_group mb-4">
+                            <label class="" for="addCheckbox" id="addCheckboxButton">+</label>
+                            <input class="" type="text" name="" id="addCheckbox" placeholder="Add permission...">
                         </div>
                     </div>
                 `;
 
-            // اضافه کردن بخش جدید به #admin-permissions
             $('.modal-body .mb-2').append(newSection);
-
-            // پاک کردن ورودی بعد از اضافه کردن
             $('#row').val('');
         } else {
             alert('Please enter a title.');
         }
     });
+
+    $(document).on('click', '#addCheckboxButton', function() {
+        addNewPermission($(this).closest('.checkbox_group'));
+    });
+
+        function addNewPermission(group) {
+        var inputVal = group.find('#addCheckbox').val();
+
+        if (inputVal) {
+            var newCheckbox = `
+                    <div class="form-check">
+                        <label class="form-check-label" for="${inputVal}">${inputVal}</label>
+                        <input class="form-check-input" type="checkbox" name="permissions[]" value="${inputVal}" id="${inputVal}">
+                    </div>
+                `;
+            group.append(newCheckbox);
+            group.find('#addCheckbox').val('');
+        } else {
+            alert('Please enter a permission.');
+        }
+    }
 });

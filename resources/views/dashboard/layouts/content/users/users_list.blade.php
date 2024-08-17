@@ -186,9 +186,9 @@
                                     </div>
 
 {{--                                    <div id="admin-permissions" style="display: none;">--}}
-                                    <div class="col-lg-6" id="admin-permissions">
-                                        <label>User Management</label>
-                                        <div class="checkbox-group mb-4">
+                                    <div class="col-lg-6">
+                                        <label class="permission_name">User Management</label>
+                                        <div class="checkbox_group mb-4">
                                             <div class="form-check">
                                                 <label class="form-check-label" for="view_users">View user list</label>
                                                 <input class="form-check-input" type="checkbox" name="permissions[]" value="view_users" id="view_users">

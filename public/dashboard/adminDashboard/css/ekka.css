@@ -19146,15 +19146,27 @@ code {
 .form-group, .input-group {
   margin-bottom: 1.25rem;
 }
-.checkbox-group{
+.checkbox_group, .add_checkbox_group{
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     padding: 15px;
 }
+#addCheckbox{
+    width: 90%;
+    height: 1em;
+    background-color: #fdfdfd;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 0;
+}
+#addCheckboxButton{
+    font-size: 20px;
+}
 .input-group-append .btn {
     border-radius: 0 15px 15px 0
 }
-.form-group label, .input-group label {
+.form-group label, .input-group label, .permission_name{
   color: #56606e;
   font-size: 15px;
 }
