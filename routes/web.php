@@ -19,9 +19,9 @@ Route::prefix('/dashboard')->group(function () {
 //    Route::get('/home', [WebDashboardController::class, 'home'])->name('dashboard-index');;
     Route::get('/home', function () {return view('dashboard.layouts.content.index');})->name('dashboard-index');;
     Route::get('/users_list', [WebDashboardController::class, 'users_list'])->name('dashboard-user_list');
+    Route::post('/users_list/addUser', [WebDashboardController::class, 'addUser'])->name('dashboard-user_list-addUser');
     Route::get('/users_profile', [WebDashboardController::class, 'users_profile'])->name('dashboard-users_profile');
 
-    Route::post('/users_list/addUser', [WebDashboardController::class, 'addUser']);
     //Route::get('/users_profile/{user_id}', [WebDashboardController::class,'users_profile']);
     Route::post('/users_profile/userUpdate/{user_id}', [WebDashboardController::class, 'userUpdate']);
 });

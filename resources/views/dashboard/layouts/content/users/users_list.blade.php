@@ -93,7 +93,7 @@
                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
-                        <form action="{{url('admin_dashboard/users_list/addUser')}}" method="post"
+                        <form action="{{route('dashboard-user_list-addUser')}}" method="post"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="modal-header px-4">
