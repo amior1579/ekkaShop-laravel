@@ -11,26 +11,34 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('permissions_category', function (Blueprint $table) {
+        Schema::create('permission_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->timestamps();
         });
 
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
-            $table->string('permissions_category');
-//            $table->foreignId('category')->constrained()->onDelete('cascade');
-            $table->foreign('category')->references('name')->on('permissions_category');
-            $table->string('name')->unique();
+            $table->string('name');
+            $table->foreignId('permission_category_id')->constrained('permission_categories')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+        Schema::create('permission_category_user', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('permission_category_id')->constrained('permission_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
-
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
+        Schema::dropIfExists('permission_category_user');
         Schema::dropIfExists('permissions');
-        Schema::dropIfExists('permissions_category');
+        Schema::dropIfExists('permission_categories');
 
     }
 };
