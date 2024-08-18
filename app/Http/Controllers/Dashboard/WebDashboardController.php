@@ -36,6 +36,11 @@ class WebDashboardController extends Controller
 //        $this->adminDashService->addUser($data);
 //        return redirect()->back();
     }
+
+    public function users_permissions(){
+//        return $this->dashboardService->AuthUser();
+        return view('dashboard.layouts.content.users.users_permissions');
+    }
 //    public function userUpdate(updateUserRequest $request, $user_id){
 //        $validatedData = $request->validated();
 //        $data = $this->imageService->profileUser($validatedData);
