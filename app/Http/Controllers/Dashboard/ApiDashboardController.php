@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\AddUserRequest;
 use App\Http\Services\Dashboard\DashboardService;
 use App\Http\Services\Dashboard\Strategy\ApiDashboardStrategy;
 use App\Http\Services\ImageService;
@@ -26,12 +27,11 @@ class ApiDashboardController extends Controller
         return $this->dashboardService->getAllUsers();
     }
 
-//    public function addUser(AddUserRequest $request){
-//        $validatedData = $request->validated();
-//        $data = $this->imageService->profileUser($validatedData);
-//        $this->adminDashService->addUser($data);
-//        return redirect()->back();
-//    }
+    public function addUser(AddUserRequest $request){
+        $validateData = $request->validated();
+//        dd($validateData);
+        return $this->dashboardService->addUser($validateData);
+    }
 //    public function users_profile(){
 //        $user = $this->adminDashService->getUser();
 //        return view('dashboard.layouts.content.users.users_profile',compact('user'));

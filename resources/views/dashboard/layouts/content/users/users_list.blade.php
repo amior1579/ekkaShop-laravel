@@ -172,8 +172,8 @@
                                         </div>
                                     </div>
                                     <hr>
-{{--                                    <div id="admin-permissions" style="display: none;">--}}
                                     <div class="col-lg-6">
+{{--                                    <div class="col-lg-6" id="admin-permissions" style="display: none;">--}}
                                         <label class="permission_name">User Management</label>
                                         <div class="checkbox_group mb-4">
                                             <div class="form-check">

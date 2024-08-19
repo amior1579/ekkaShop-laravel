@@ -23,7 +23,7 @@ class AuthRepository
     }
     /**
      * @param array $permissions
-     * @param int $userId
+     * @param int $user_id
      * @return void
      */
     public function savePermissions(array $permissions, int $user_id): void

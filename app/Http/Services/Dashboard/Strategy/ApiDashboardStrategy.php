@@ -1,7 +1,9 @@
 <?php
 namespace App\Http\Services\Dashboard\Strategy;
 
+use App\Http\Requests\Dashboard\AddUserRequest;
 use App\Http\Resources\AuthResource;
+use App\Http\Resources\Dashboard\AddUserResource;
 use App\Http\Services\Dashboard\Strategy\BaseDashboardStrategy;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +20,15 @@ class ApiDashboardStrategy extends BaseDashboardStrategy
         if ($data){
             return response()->json([
                 'Users' => $data,
+            ]);
+        }
+        throw new ApiAuthException();
+    }
+    public function addUser($data): JsonResponse
+    {
+        if ($data){
+            return response()->json([
+                'Users' => new AddUserResource($data),
             ]);
         }
         throw new ApiAuthException();
