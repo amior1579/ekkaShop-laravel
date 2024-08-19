@@ -25,13 +25,11 @@ class WebDashboardStrategy extends BaseDashboardStrategy
         }
         return redirect()->route('login-form');
     }
-//
-//
-//    public function delete($user): RedirectResponse
-//    {
-//        if ($user) {
-//            return back()->with('message', 'User deleted successful');
-//        }
-//        return back()->with('message', 'User deletion failed');
-//    }
+    public function addUser($user): RedirectResponse
+    {
+        if ($user) {
+            return back()->with('message', 'User created successfully');
+        }
+        return back()->with('message', 'User not created');
+    }
 }

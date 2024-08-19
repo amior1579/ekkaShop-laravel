@@ -56,8 +56,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function permissionCategories(): BelongsToMany
+    public function permissions()
     {
-        return $this->belongsToMany(PermissionCategory::class, 'permission_category_user');
+        return $this->hasMany(Permission::class);
+    }
+
+    public function hasPermission($permission)
+    {
+        return $this->permissions()->where('permission', $permission)->exists();
     }
 }

@@ -9,12 +9,14 @@ class Permission extends Model
 {
     use HasFactory;
 
-    protected $table = 'permissions';
+    protected $fillable = [
+        'user_id',
+        'category',
+        'permission'
+    ];
 
-    protected $fillable = ['permissions_category', 'name'];
-
-    public function category()
+    public function user()
     {
-        return $this->belongsTo(PermissionCategory::class, 'permissions_category', 'name');
+        return $this->belongsTo(User::class);
     }
 }

@@ -39,11 +39,11 @@
                                     <span class="nav-text">Users Profile</span>
                                 </a>
                             </li>
-                            <li class="" id="users-permissions">
-                                <a class="sidenav-item-link" href="{{route('dashboard-users_permissions')}}">
-                                    <span class="nav-text">Users Permissions</span>
-                                </a>
-                            </li>
+{{--                            <li class="" id="users-permissions">--}}
+{{--                                <a class="sidenav-item-link" href="{{route('dashboard-users_permissions')}}">--}}
+{{--                                    <span class="nav-text">Users Permissions</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
                         </ul>
                     </div>
                 </li>

@@ -27,7 +27,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/users_profile', [WebDashboardController::class, 'users_profile'])->name('dashboard-users_profile');
 
     //    --------- Users permissions ---------
-    Route::get('/users_permissions', [WebDashboardController::class, 'users_permissions'])->name('dashboard-users_permissions');
+//    Route::get('/users_permissions', [WebDashboardController::class, 'users_permissions'])->name('dashboard-users_permissions');
 
     //Route::get('/users_profile/{user_id}', [WebDashboardController::class,'users_profile']);
     Route::post('/users_profile/userUpdate/{user_id}', [WebDashboardController::class, 'userUpdate']);

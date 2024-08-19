@@ -31,10 +31,12 @@ class DashboardService{
         $user = Auth::user();
         return $this->strategy->AuthUser($user);
     }
-//    public function addUser($data)
-//    {
-//        return $this->authRepository->createUser($data);
-//    }
+    public function addUser($data)
+    {
+        $newData = $this->imageService->profileUser($data);
+        $user = $this->authRepository->createUser($newData);
+        return $this->strategy->addUser($user);
+    }
 //    public function userUpdate($data, $user_id)
 //    {
 //        return $this->authRepository->UpdateUser($data, $user_id);

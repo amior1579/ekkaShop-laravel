@@ -30,6 +30,10 @@ class AddUserRequest extends FormRequest
             'status' => 'required|in:active,inactive,pending',
             'role' => 'required|in:admin,seller,customer',
             'password' => 'required|string|min:4',
+
+//           permissions
+            'permissions.UserManagement' => 'nullable|array',
+            'permissions.UserManagement.*' => 'string|in:view_users,create_user,edit_user,delete_user,reset_password,manage_roles',
         ];
     }
 }

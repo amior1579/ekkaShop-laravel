@@ -10,6 +10,7 @@
 namespace App\Repositories;
 
 use App\Models\User;
+use App\Models\Permission;
 
 class AuthRepository
 {
@@ -20,9 +21,36 @@ class AuthRepository
         }
         return null;
     }
-    public function createUser($data): User
+    /**
+     * @param array $permissions
+     * @param int $userId
+     * @return void
+     */
+    public function savePermissions(array $permissions, int $user_id): void
     {
-        return User::create($data);
+        foreach ($permissions as $category => $permissionList) {
+            foreach ($permissionList as $permission){
+                if (!Permission::where([
+                    'user_id' => $user_id,
+                    'category' => $category,
+                    'permission' => $permission,
+                ])->exists()) {
+                    Permission::create([
+                        'user_id' => $user_id,
+                        'category' => $category,
+                        'permission' => $permission,
+                    ]);
+                }
+            }
+        }
+    }
+    public function createUser(array $data): User|null
+    {
+        $user = User::create($data);
+        if (isset($data['permissions'])){
+            $this->savePermissions($data['permissions'], $user->id);
+        }
+        return $user;
     }
 
     public function allUser(){
