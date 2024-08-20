@@ -93,7 +93,7 @@
                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
-                        <form action="{{route('dashboard-user_list-addUser')}}" method="post"
+                        <form action="{{route('dashboard-user_list-addUser')}}" method="post" id="adduser_form"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="modal-header px-4">
@@ -117,31 +117,39 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="username">Username</label>
-                                            <input type="text" name="username" class="form-control" id="username"
-                                                   placeholder="john" required>
+                                            <input type="text" name="username" class="form-control" id="username" value="{{ old('username') }}" placeholder="john" required>
+                                            @error('username')
+                                            <div class="message_alert_form">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="name">Name</label>
-                                            <input type="text" name="name" class="form-control" id="name"
-                                                   placeholder="Deo">
+                                            <input type="text" name="name" class="form-control" id="name" value="{{ old('name') }}" placeholder="Deo">
+                                            @error('name')
+                                            <div class="message_alert_form">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
                                             <label for="email">Email</label>
-                                            <input type="email" name="email" class="form-control" id="email"
-                                                   placeholder="DeoExample@gmail.com">
+                                            <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}" placeholder="DeoExample@gmail.com">
+                                            @error('email')
+                                            <div class="message_alert_form">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
                                             <label for="phoneNumber">Phone number</label>
-                                            <input type="text" name="phoneNumber" class="form-control" id="phoneNumber"
-                                                   placeholder="09111111111">
+                                            <input type="text" name="phoneNumber" class="form-control" id="phoneNumber" value="{{ old('phoneNumber') }}" placeholder="09111111111">
+                                            @error('phoneNumber')
+                                            <div class="message_alert_form">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -169,6 +177,9 @@
                                         <div class="form-group mb-4">
                                             <label for="password">Password</label>
                                             <input type="password" name="password" class="form-control" id="password">
+                                            @error('password')
+                                            <div class="message_alert_form">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -180,7 +191,7 @@
                                         <div class="checkbox_group mb-4">
                                             <div class="form-check">
                                                 <label class="form-check-label" for="view_users">View user list</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[UserManagement][view_users]" value="view_users" id="view_users">
+                                                <input class="form-check-input" type="checkbox" name="permissions[UserManagement][view_users]"  value="view_users" {{ old('view_users') ? 'checked' : '' }} id="view_users">
                                             </div>
                                             <div class="form-check">
                                                 <label class="form-check-label" for="create_user">Create a new user</label>
