@@ -34,6 +34,10 @@ class AddUserRequest extends FormRequest
 //           permissions
             'permissions.UserManagement' => 'nullable|array',
             'permissions.UserManagement.*' => 'string|in:view_users,create_user,edit_user,delete_user,reset_password,manage_roles',
+
+            'permissions.ProductManagement' => 'nullable|array',
+            'permissions.ProductManagement.*' => 'string|in:view_product,create_product,edit_product,delete_product,product_category,product_inventory,product_pricing,product_reviews,public_product,product_tags,product_SEO,product_analytics',
+
         ];
     }
 }

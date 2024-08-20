@@ -171,9 +171,11 @@
                                             <input type="password" name="password" class="form-control" id="password">
                                         </div>
                                     </div>
-                                    <hr>
+                                </div>
+
+                                <div class="row mb-2">
                                     <div class="col-lg-6">
-{{--                                    <div class="col-lg-6" id="admin-permissions" style="display: none;">--}}
+                                        {{--                                    <div class="col-lg-6" id="admin-permissions" style="display: none;">--}}
                                         <label class="permission_name">User Management</label>
                                         <div class="checkbox_group mb-4">
                                             <div class="form-check">
@@ -202,8 +204,63 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-6">
+                                        {{--                                    <div class="col-lg-6" id="admin-permissions" style="display: none;">--}}
+                                        <label class="permission_name">Product Management</label>
+                                        <div class="checkbox_group mb-4">
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="view_product">View product list</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][view_product]" value="view_product" id="view_product">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="create_product">Add new product</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][create_product]" value="create_product" id="create_product">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="edit_product">Edit product details</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][edit_product]" value="edit_product" id="edit_product">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="delete_product">Delete product</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][delete_product]" value="delete_product" id="delete_product">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="product_category">Manage product categories</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_category]" value="product_category" id="product_category">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="product_inventory">Manage product inventory</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_inventory]" value="product_inventory" id="product_inventory">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="product_pricing">Manage product pricing</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_pricing]" value="product_pricing" id="product_pricing">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="product_reviews">Manage product reviews</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_reviews]" value="product_reviews" id="product_reviews">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="public_product">Publish/unpublish product</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][public_product]" value="public_product" id="public_product">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="product_tags">Manage product tags</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_tags]" value="product_tags" id="product_tags">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="product_SEO">Manage product SEO</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_SEO]" value="product_SEO" id="product_SEO">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="product_analytics">View product analytics</label>
+                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_analytics]" value="product_analytics" id="product_analytics">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+
+                                </div>
 
                             <div class="modal-footer px-4">
                                 <button type="button" class="btn btn-secondary btn-pill" data-bs-dismiss="modal">
