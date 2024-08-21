@@ -12,6 +12,11 @@
                     {{ session('message') }}
                 </div>
             @endif
+            @if ($errors->any())
+                <div id="Failure-message" class="floating-message">
+                    User not created
+                </div>
+            @endif
             <div class="breadcrumb-wrapper breadcrumb-contacts">
                 <div>
                     <h1>User List</h1>
@@ -20,8 +25,8 @@
                     </p>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser"> Add
-                        User
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser">
+                        Add User
                     </button>
                 </div>
             </div>
@@ -185,88 +190,37 @@
                                 </div>
 
                                 <div class="row mb-2">
-                                    <div class="col-lg-6">
-                                        {{--                                    <div class="col-lg-6" id="admin-permissions" style="display: none;">--}}
+                                    <!-- User Management Permissions -->
+                                    <div class="col-lg-6 permission-section" id="UserManagement_permissions" style="display: none;">
                                         <label class="permission_name">User Management</label>
                                         <div class="checkbox_group mb-4">
                                             <div class="form-check">
-                                                <label class="form-check-label" for="view_users">View user list</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[UserManagement][view_users]"  value="view_users" {{ old('view_users') ? 'checked' : '' }} id="view_users">
+                                                <input class="form-check-input select-all" type="checkbox" id="select_all_UserManagement">
+                                                <label class="form-check-label" for="select_all_UserManagement">Select All</label>
                                             </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="create_user">Create a new user</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[UserManagement][create_user]" value="create_user" id="create_user">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="edit_user">Edit user profiles</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[UserManagement][edit_user]" value="edit_user" id="edit_user">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="delete_user">Delete or deactivate users</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[UserManagement][delete_user]" value="delete_user" id="delete_user">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="reset_password">Recover user passwords</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[UserManagement][reset_password]" value="reset_password" id="reset_password">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="manage_roles">Set user roles and permissions</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[UserManagement][manage_roles]" value="manage_roles" id="manage_roles">
-                                            </div>
+                                            @foreach(['view_users' => 'View user list', 'create_user' => 'Create a new user', 'edit_user' => 'Edit user profiles', 'delete_user' => 'Delete or deactivate users', 'reset_password' => 'Recover user passwords', 'manage_roles' => 'Set user roles and permissions'] as $permission => $label)
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="permissions[UserManagement][{{ $permission }}]" value="{{ $permission }}" id="{{ $permission }}">
+                                                    <label class="form-check-label" for="{{ $permission }}">{{ $label }}</label>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        {{--                                    <div class="col-lg-6" id="admin-permissions" style="display: none;">--}}
+
+                                    <!-- Product Management Permissions -->
+                                    <div class="col-lg-6 permission-section" id="ProductManagement_permissions" style="display: none;">
                                         <label class="permission_name">Product Management</label>
                                         <div class="checkbox_group mb-4">
                                             <div class="form-check">
-                                                <label class="form-check-label" for="view_product">View product list</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][view_product]" value="view_product" id="view_product">
+                                                <input class="form-check-input select-all" type="checkbox" id="select_all_ProductManagement">
+                                                <label class="form-check-label" for="select_all_ProductManagement">Select All</label>
                                             </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="create_product">Add new product</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][create_product]" value="create_product" id="create_product">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="edit_product">Edit product details</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][edit_product]" value="edit_product" id="edit_product">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="delete_product">Delete product</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][delete_product]" value="delete_product" id="delete_product">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="product_category">Manage product categories</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_category]" value="product_category" id="product_category">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="product_inventory">Manage product inventory</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_inventory]" value="product_inventory" id="product_inventory">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="product_pricing">Manage product pricing</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_pricing]" value="product_pricing" id="product_pricing">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="product_reviews">Manage product reviews</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_reviews]" value="product_reviews" id="product_reviews">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="public_product">Publish/unpublish product</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][public_product]" value="public_product" id="public_product">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="product_tags">Manage product tags</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_tags]" value="product_tags" id="product_tags">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="product_SEO">Manage product SEO</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_SEO]" value="product_SEO" id="product_SEO">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="product_analytics">View product analytics</label>
-                                                <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][product_analytics]" value="product_analytics" id="product_analytics">
-                                            </div>
+                                            @foreach(['view_product' => 'View product list', 'create_product' => 'Add new product', 'edit_product' => 'Edit product details', 'delete_product' => 'Delete product', 'product_category' => 'Manage product categories', 'product_inventory' => 'Manage product inventory', 'product_pricing' => 'Manage product pricing', 'product_reviews' => 'Manage product reviews', 'public_product' => 'Publish/unpublish product', 'product_tags' => 'Manage product tags', 'product_SEO' => 'Manage product SEO', 'product_analytics' => 'View product analytics'] as $permission => $label)
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="permissions[ProductManagement][{{ $permission }}]" value="{{ $permission }}" id="{{ $permission }}">
+                                                    <label class="form-check-label" for="{{ $permission }}">{{ $label }}</label>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

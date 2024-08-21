@@ -24994,23 +24994,27 @@ div.dataTables_wrapper div.dataTables_filter {
 }
 
 
-/*------------------- User deleted successful message ------------------- */
-.floating-message {
+/*------------------- success message ------------------- */
+#success-message , #Failure-message{
     position: fixed;
-    top: -100px; /* ابتدا پیام خارج از دید است */
+    top: -100px;
     left: 50%;
-    transform: translateX(-50%) scale(0.9); /* مقیاس کوچک‌تر برای شروع */
-    background-color: #4CAF50;
+    transform: translateX(-50%) scale(0.9);
     color: white;
     padding: 15px 30px;
     border-radius: 5px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    display: none; /* مخفی کردن ابتدایی پیام برای نمایش با انیمیشن */
-    opacity: 0; /* شروع با شفافیت صفر */
-    transition: all 0.5s ease; /* انیمیشن نرم برای تمام تغییرات */
+    display: none;
+    opacity: 0;
+    transition: all 0.5s ease;
 }
-
+#success-message {
+    background-color: #4CAF50;
+}
+#Failure-message {
+    background-color: #f46868;
+}
 
 .message_alert_form{
     color: #ffffff;

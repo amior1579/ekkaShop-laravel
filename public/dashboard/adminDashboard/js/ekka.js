@@ -356,66 +356,77 @@ $(document).ready(function () {
         }
     });
 
-    // ------------------------------ User deleted successful message ------------------------------
-    $('#success-message').css('display', 'block')
+    // ------------------------------ Failure & success message ------------------------------
+    $('#success-message, #Failure-message').css('display', 'block')
         .animate({ top: '20px', opacity: 1, scale: 1 }, 200);
 
     setTimeout(function() {
-        $('#success-message').animate({ top: '-100px', opacity: 0, scale: 0.9 }, 500, function() {
-            $(this).remove(); // حذف پیام از DOM بعد از محو شدن کامل
+        $('#success-message, #Failure-message').animate({ top: '-100px', opacity: 0, scale: 0.9 }, 500, function() {
+            $(this).remove();
         });
     }, 2000);
 
     // ------------------------------  ------------------------------
 
     $('#role').change(function() {
-        if ($(this).val() === 'admin') {
-            $('#admin-permissions').show();
-        } else {
-            $('#admin-permissions').hide();
+        const role = $(this).val();
+        $('.permission-section').hide(); // همه‌ی بخش‌ها رو مخفی کن
+
+        if (role === 'admin') {
+            $('#UserManagement_permissions, #ProductManagement_permissions').show();
+        } else if (role === 'seller') {
+            $('#ProductManagement_permissions').show();
         }
     });
+    // ------------------------------ userList/addUser/select All Check ------------------------------
+    $('.select-all').change(function() {
+        const group = $(this).closest('.checkbox_group');
+        const isChecked = $(this).is(':checked');
+        group.find('.form-check-input').not(this).prop('checked', isChecked);
+    });
+
 
     // ------------------------------  ------------------------------
-    $('#add_permission').click(function() {
-        var title = $('#permissionName').val();
-        if (title) {
-            // ایجاد یک بخش جدید با عنوان جدید
-            var newSection = `
-                    <div class="col-lg-6">
-                        <label class="permission_name">${title}</label>
-                        <div class="checkbox_group mb-4">
-                            <label class="" for="addCheckbox" id="addCheckboxButton">+</label>
-                            <input class="" type="text" name="" id="addCheckbox" placeholder="Add permission...">
-                        </div>
-                    </div>
-                `;
 
-            $('.modal-body .mb-2').append(newSection);
-            $('#row').val('');
-        } else {
-            alert('Please enter a title.');
-        }
-    });
-
-    $(document).on('click', '#addCheckboxButton', function() {
-        addNewPermission($(this).closest('.checkbox_group'));
-    });
-
-        function addNewPermission(group) {
-        var inputVal = group.find('#addCheckbox').val();
-
-        if (inputVal) {
-            var newCheckbox = `
-                    <div class="form-check">
-                        <label class="form-check-label" for="${inputVal}">${inputVal}</label>
-                        <input class="form-check-input" type="checkbox" name="permissions[]" value="${inputVal}" id="${inputVal}">
-                    </div>
-                `;
-            group.append(newCheckbox);
-            group.find('#addCheckbox').val('');
-        } else {
-            alert('Please enter a permission.');
-        }
-    }
+    // $('#add_permission').click(function() {
+    //     var title = $('#permissionName').val();
+    //     if (title) {
+    //         // ایجاد یک بخش جدید با عنوان جدید
+    //         var newSection = `
+    //                 <div class="col-lg-6">
+    //                     <label class="permission_name">${title}</label>
+    //                     <div class="checkbox_group mb-4">
+    //                         <label class="" for="addCheckbox" id="addCheckboxButton">+</label>
+    //                         <input class="" type="text" name="" id="addCheckbox" placeholder="Add permission...">
+    //                     </div>
+    //                 </div>
+    //             `;
+    //
+    //         $('.modal-body .mb-2').append(newSection);
+    //         $('#row').val('');
+    //     } else {
+    //         alert('Please enter a title.');
+    //     }
+    // });
+    //
+    // $(document).on('click', '#addCheckboxButton', function() {
+    //     addNewPermission($(this).closest('.checkbox_group'));
+    // });
+    //
+    //     function addNewPermission(group) {
+    //     var inputVal = group.find('#addCheckbox').val();
+    //
+    //     if (inputVal) {
+    //         var newCheckbox = `
+    //                 <div class="form-check">
+    //                     <label class="form-check-label" for="${inputVal}">${inputVal}</label>
+    //                     <input class="form-check-input" type="checkbox" name="permissions[]" value="${inputVal}" id="${inputVal}">
+    //                 </div>
+    //             `;
+    //         group.append(newCheckbox);
+    //         group.find('#addCheckbox').val('');
+    //     } else {
+    //         alert('Please enter a permission.');
+    //     }
+    // }
 });
