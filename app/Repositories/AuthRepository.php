@@ -56,13 +56,13 @@ class AuthRepository
     public function allUser(){
         return User::all();
     }
-    public function deleteUser($user_id): true|null
+    public function deleteUser_Repo($userId): true|null
     {
-        $user = $this->findUser($user_id);
+        $user = $this->findUser($userId);
         return $user ?->delete();
     }
-    public function UpdateUser(array $data, $user_id){
-        $user = $this->findUser($user_id);
-        return $user?->update($data);
-    }
+//    public function UpdateUser(array $data, $user_id){
+//        $user = $this->findUser($user_id);
+//        return $user?->update($data);
+//    }
 }

@@ -33,6 +33,19 @@ class ApiDashboardStrategy extends BaseDashboardStrategy
         }
         throw new ApiAuthException();
     }
+
+    /**
+     * @throw ApiAuthException
+     */
+    public function deleteUser_str($user)
+    {
+        if($user){
+            return response()->json([
+                'message' => "User deleted successfully",
+            ]);
+        }
+        throw new ApiAuthException();
+    }
 //
 //
 //    /**

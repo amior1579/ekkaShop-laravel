@@ -32,11 +32,10 @@ class WebDashboardController extends Controller
         return $this->dashboardService->addUser($validateData);
     }
 
-//        $validatedData = $request->validated();
-//        $data = $this->imageService->profileUser($validatedData);
-//        $this->adminDashService->addUser($data);
-//        return redirect()->back();
-
+    public function users_list__deleteUser($userId)
+    {
+        return $this->dashboardService->deleteUser($userId);
+    }
 //    public function users_permissions(){
 ////        return $this->dashboardService->AuthUser();
 //        return view('dashboard.layouts.content.users.users_permissions');

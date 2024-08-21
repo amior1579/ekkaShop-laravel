@@ -8,6 +8,7 @@ use App\Http\Services\Dashboard\DashboardService;
 use App\Http\Services\Dashboard\Strategy\ApiDashboardStrategy;
 use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
+use Illuminate\Http\Request;
 
 class ApiDashboardController extends Controller
 {
@@ -27,10 +28,13 @@ class ApiDashboardController extends Controller
         return $this->dashboardService->getAllUsers();
     }
 
-    public function addUser(AddUserRequest $request){
+    public function users_list__addUser(AddUserRequest $request){
         $validateData = $request->validated();
-//        dd($validateData);
         return $this->dashboardService->addUser($validateData);
+    }
+    public function users_list__deleteUser($userId)
+    {
+        return $this->dashboardService->deleteUser($userId);
     }
 //    public function users_profile(){
 //        $user = $this->adminDashService->getUser();

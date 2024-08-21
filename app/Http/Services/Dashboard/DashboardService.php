@@ -37,9 +37,9 @@ class DashboardService{
         $user = $this->authRepository->createUser($newData);
         return $this->strategy->addUser($user);
     }
-//    public function userUpdate($data, $user_id)
-//    {
-//        return $this->authRepository->UpdateUser($data, $user_id);
-//
-//    }
+    public function deleteUser($userId)
+    {
+        $user = $this->authRepository->deleteUser_Repo($userId);
+        return $this->strategy->deleteUser_str($user);
+    }
 }

@@ -2,6 +2,7 @@
 namespace App\Http\Services\Dashboard\Strategy;
 //use App\Http\Services\Strategy\Auth\AuthService;
 use App\Http\Services\Dashboard\Strategy\BaseDashboardStrategy;
+use http\Client\Curl\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
@@ -31,5 +32,13 @@ class WebDashboardStrategy extends BaseDashboardStrategy
             return back()->with('message', 'User created successfully');
         }
         return back()->with('message', 'User not created');
+    }
+
+    public function deleteUser_str($user): RedirectResponse
+    {
+        if ($user) {
+            return back()->with('message', 'User deleted successfully');
+        }
+        return back()->with('message', 'The user was not deleted');
     }
 }
