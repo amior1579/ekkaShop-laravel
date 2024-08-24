@@ -5,7 +5,7 @@
 @endsection
 
 @section('contents')
-    <div class="ec-content-wrapper users-menu users-profile ">
+    <div class="ec-content-wrapper users-menu user-profile ">
         <div class="content">
             <div class="breadcrumb-wrapper breadcrumb-contacts">
                 <div>
@@ -98,6 +98,12 @@
                                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
                                             data-bs-target="#profile" type="button" role="tab"
                                             aria-controls="profile" aria-selected="false">Profile
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                            data-bs-target="#permissions" type="button" role="tab"
+                                            aria-controls="permissions" aria-selected="false">Permissions
                                     </button>
                                 </li>
                             </ul>
@@ -449,6 +455,68 @@
                                                     <div class="mt-3"></div>
                                                 </div>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="permissions" role="tabpanel" aria-labelledby="permissions-tab">
+                                    <div class="tab-widget mt-5">
+                                        <div class="row">
+                                            <div class="row mb-2">
+                                                <!-- User Management Permissions -->
+                                                <div class="col-lg-6 permission-section" id="UserManagement_permissions">
+                                                    <label class="permission_name">User Management</label>
+                                                    <div class="checkbox_group mb-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input select-all" type="checkbox" id="select_all_UserManagement">
+                                                            <label class="form-check-label" for="select_all_UserManagement">Select All</label>
+                                                        </div>
+                                                        @foreach(['view_users' => 'View user list', 'create_user' => 'Create a new user', 'edit_user' => 'Edit user profiles', 'delete_user' => 'Delete or deactivate users', 'reset_password' => 'Recover user passwords', 'manage_roles' => 'Set user roles and permissions'] as $permission => $label)
+                                                            <div class="form-check">
+                                                                <input
+                                                                    id="{{ $permission }}"
+                                                                    class="form-check-input"
+                                                                    type="checkbox"
+                                                                    name="permissions[UserManagement][{{ $permission }}]"
+                                                                    value="{{ $permission }}"
+                                                                    {{ in_array($permission, $permissions) ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="{{ $permission }}">{{ $label }}</label>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+
+                                                <!-- Product Management Permissions -->
+                                                <div class="col-lg-6 permission-section" id="ProductManagement_permissions">
+                                                    <label class="permission_name">Product Management</label>
+                                                    <div class="checkbox_group mb-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input select-all" type="checkbox" id="select_all_ProductManagement">
+                                                            <label class="form-check-label" for="select_all_ProductManagement">Select All</label>
+                                                        </div>
+                                                        @foreach(['view_product' => 'View product list', 'create_product' => 'Add new product', 'edit_product' => 'Edit product details', 'delete_product' => 'Delete product', 'product_category' => 'Manage product categories', 'product_inventory' => 'Manage product inventory', 'product_pricing' => 'Manage product pricing', 'product_reviews' => 'Manage product reviews', 'public_product' => 'Publish/unpublish product', 'product_tags' => 'Manage product tags', 'product_SEO' => 'Manage product SEO', 'product_analytics' => 'View product analytics'] as $permission => $label)
+                                                            <div class="form-check">
+                                                                <input
+                                                                    id="{{ $permission }}"
+                                                                    class="form-check-input"
+                                                                    type="checkbox"
+                                                                    name="permissions[ProductManagement][{{ $permission }}]"
+                                                                    value="{{ $permission }}"
+                                                                    {{ in_array($permission, $permissions) ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="{{ $permission }}">{{ $label }}</label>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="d-flex justify-content-end mt-5">
+                                                <button type="submit"
+                                                        class="btn btn-primary mb-2 btn-pill">Update
+                                                    Permissions
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

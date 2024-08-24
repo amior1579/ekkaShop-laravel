@@ -30,7 +30,8 @@ class DashboardService{
     }
     public function getAuthUser()
     {
-        return $this->strategy->AuthUser($this->auth->user());
+        $permissions = $this->authRepository->getPermissionsUser();
+        return $this->strategy->AuthUser($this->auth->user(),$permissions);
     }
     public function addUser($data)
     {

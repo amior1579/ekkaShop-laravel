@@ -5,7 +5,7 @@
 @endsection
 
 @section('contents')
-    <div class="ec-content-wrapper users-menu user-list ">
+    <div class="ec-content-wrapper users-menu users-list ">
         <div class="content">
             @if(session('message'))
                 <div id="success-message" class="floating-message">
@@ -19,7 +19,7 @@
             @endif
             <div class="breadcrumb-wrapper breadcrumb-contacts">
                 <div>
-                    <h1>User List</h1>
+                    <h1>Users List</h1>
                     <p class="breadcrumbs"><span><a href="{{route('dashboard-index')}}">Home</a></span>
                         <span><i class="mdi mdi-chevron-right"></i></span>User
                     </p>

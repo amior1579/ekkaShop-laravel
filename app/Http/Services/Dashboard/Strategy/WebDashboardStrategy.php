@@ -19,10 +19,10 @@ class WebDashboardStrategy extends BaseDashboardStrategy
         }
         return back()->withErrors(['loginError' => 'The username or password is incorrect.',]);
     }
-    public function AuthUser($user): View|RedirectResponse
+    public function AuthUser($user,$permissions): View|RedirectResponse
     {
         if ($user){
-            return view('dashboard.layouts.content.users.users_profile',compact('user'));
+            return view('dashboard.layouts.content.users.users_profile',compact('user','permissions'));
         }
         return redirect()->route('login-form');
     }

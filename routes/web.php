@@ -25,7 +25,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::get ('/users_list/deleteUser/{userId}',[WebDashboardController::class,'users_list__deleteUser'])->name('dashboard-user_list-deleteUser');
 
 //    --------- Users profile ---------
-    Route::get('/users_profile', [WebDashboardController::class, 'users_profile'])->name('dashboard-users_profile');
+    Route::get('/users_profile', [WebDashboardController::class, 'user_profile'])->name('dashboard-users_profile');
 
     //    --------- Users permissions ---------
 //    Route::get('/users_permissions', [WebDashboardController::class, 'users_permissions'])->name('dashboard-users_permissions');

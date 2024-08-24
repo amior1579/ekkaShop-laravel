@@ -47,6 +47,12 @@ class AuthRepository
             }
         }
     }
+    public function getPermissionsUser()
+    {
+        $permissions = Permission::where('user_id', $this->auth->id())->pluck('permission')->toArray();;
+        return $permissions;
+    }
+
     public function createUser(array $data): User|null
     {
         $user = User::create($data);

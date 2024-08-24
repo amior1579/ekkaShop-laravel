@@ -29,21 +29,16 @@
                     </a>
                     <div class="collapse" id="users-collapse">
                         <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
-                            <li class="" id="user-list">
+                            <li class="" id="users-list">
                                 <a class="sidenav-item-link " href="{{route('dashboard-user_list')}}">
-                                    <span class="nav-text">User List</span>
+                                    <span class="nav-text">Users List</span>
                                 </a>
                             </li>
-                            <li class="" id="users-profile">
+                            <li class="" id="user-profile">
                                 <a class="sidenav-item-link" href="{{route('dashboard-users_profile')}}">
-                                    <span class="nav-text">Users Profile</span>
+                                    <span class="nav-text">User Profile</span>
                                 </a>
                             </li>
-{{--                            <li class="" id="users-permissions">--}}
-{{--                                <a class="sidenav-item-link" href="{{route('dashboard-users_permissions')}}">--}}
-{{--                                    <span class="nav-text">Users Permissions</span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
                         </ul>
                     </div>
                 </li>

@@ -37,7 +37,7 @@ class WebDashboardController extends Controller
     }
 
 //    ---------------- Users Profile ----------------
-    public function users_profile(){
+    public function user_profile(){
         return $this->dashboardService->getAuthUser();
     }
 //    public function users_permissions(){
