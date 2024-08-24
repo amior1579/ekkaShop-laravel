@@ -22,7 +22,7 @@ class WebDashboardStrategy extends BaseDashboardStrategy
     public function AuthUser($user,$permissions): View|RedirectResponse
     {
         if ($user){
-            return view('dashboard.layouts.content.users.users_profile',compact('user','permissions'));
+            return view('dashboard.layouts.content.users.user_profile',compact('user','permissions'));
         }
         return redirect()->route('login-form');
     }
