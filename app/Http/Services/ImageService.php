@@ -9,6 +9,7 @@ class ImageService{
             $data['profile'] =  $data['profile']->store('images/profileUser', 'public');
             return $data;
         }
+        $data['profile'] = 'images/null_images/nullProfile.jpg';
         return $data;
     }
 }
