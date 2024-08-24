@@ -20,22 +20,25 @@ class WebDashboardController extends Controller
             new WebDashboardStrategy(),
             new ImageService(),
             new AuthRepository($auth),
+            $auth,
         );
     }
+//    ---------------- Users List ----------------
     public function users_list(){
         return $this->dashboardService->getAllUsers();
     }
-    public function users_profile(){
-        return $this->dashboardService->AuthUser();
-    }
-    public function addUser(AddUserRequest $request){
+    public function users_list__addUser(AddUserRequest $request){
         $validateData = $request->validated();
         return $this->dashboardService->addUser($validateData);
     }
-
     public function users_list__deleteUser($userId)
     {
         return $this->dashboardService->deleteUser($userId);
+    }
+
+//    ---------------- Users Profile ----------------
+    public function users_profile(){
+        return $this->dashboardService->getAuthUser();
     }
 //    public function users_permissions(){
 ////        return $this->dashboardService->AuthUser();

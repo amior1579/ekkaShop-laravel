@@ -17,13 +17,14 @@ Route::get('/login', function () {return view('shop.layouts.content.login');})->
 Route::prefix('/dashboard')->group(function () {
 //    Route::get('/home', [WebDashboardController::class, 'home'])->name('dashboard-index');;
 
+    Route::get ('/home', function () {return view('dashboard.layouts.content.index');})->name('dashboard-index');
+
 //    --------- Users list ---------
-    Route::get ('/home', function () {return view('dashboard.layouts.content.index');})->name('dashboard-index');;
     Route::get ('/users_list', [WebDashboardController::class, 'users_list'])->name('dashboard-user_list');
-    Route::post('/users_list/addUser', [WebDashboardController::class, 'addUser'])->name('dashboard-user_list-addUser');
+    Route::post('/users_list/addUser', [WebDashboardController::class, 'users_list__addUser'])->name('dashboard-user_list-addUser');
     Route::get ('/users_list/deleteUser/{userId}',[WebDashboardController::class,'users_list__deleteUser'])->name('dashboard-user_list-deleteUser');
 
-    //    --------- Users profile ---------
+//    --------- Users profile ---------
     Route::get('/users_profile', [WebDashboardController::class, 'users_profile'])->name('dashboard-users_profile');
 
     //    --------- Users permissions ---------
