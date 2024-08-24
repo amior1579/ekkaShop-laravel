@@ -8,17 +8,18 @@ use App\Http\Services\Dashboard\Strategy\WebDashboardStrategy;
 use App\Http\Services\Dashboard\DashboardService;
 use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
 class WebDashboardController extends Controller
 {
     protected DashboardService $dashboardService;
 
-    public function __construct(){
+    public function __construct(Guard $auth){
         $this->dashboardService = new DashboardService(
             new WebDashboardStrategy(),
             new ImageService(),
-            new AuthRepository()
+            new AuthRepository($auth),
         );
     }
     public function users_list(){

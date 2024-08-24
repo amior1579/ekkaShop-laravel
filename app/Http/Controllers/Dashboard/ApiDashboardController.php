@@ -8,17 +8,18 @@ use App\Http\Services\Dashboard\DashboardService;
 use App\Http\Services\Dashboard\Strategy\ApiDashboardStrategy;
 use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
 class ApiDashboardController extends Controller
 {
     protected DashboardService $dashboardService;
 
-    public function __construct(){
+    public function __construct(Guard $auth){
         $this->dashboardService = new DashboardService(
             new ApiDashboardStrategy(),
             new ImageService(),
-            new AuthRepository()
+            new AuthRepository($auth)
         );
     }
 

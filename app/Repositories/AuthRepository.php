@@ -11,9 +11,12 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Models\Permission;
+use Illuminate\Contracts\Auth\Guard;
 
 class AuthRepository
 {
+    public function __construct(readonly Guard $auth) {}
+
     public function findUser($user_id): User|null
     {
         if ($user = User::find($user_id)){
@@ -53,8 +56,10 @@ class AuthRepository
         return $user;
     }
 
-    public function allUser(){
-        return User::all();
+    public function allUsers(){
+        return User::where('id', '!=', $this->auth->id())
+            ->orderBy('created_at', 'desc')
+            ->get();
     }
     public function deleteUser_Repo($userId): true|null
     {

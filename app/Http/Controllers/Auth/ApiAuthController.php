@@ -9,16 +9,17 @@ use App\Http\Services\Auth\AuthService;
 use App\Http\Services\Auth\Strategy\Auth\ApiAuthStrategy;
 use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
 class ApiAuthController extends Controller
 {
     protected AuthService $authService;
-    public function __construct(){
+    public function __construct(Guard $auth){
         $this->authService = new AuthService(
             new ApiAuthStrategy(),
             new ImageService(),
-            new AuthRepository()
+            new AuthRepository($auth)
         );
 
     }

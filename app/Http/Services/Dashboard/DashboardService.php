@@ -23,7 +23,7 @@ class DashboardService{
 
     public function getAllUsers()
     {
-        $users = $this->authRepository->allUser();
+        $users = $this->authRepository->allUsers();
         return $this->strategy->getAllUsers($users);
     }
     public function AuthUser()

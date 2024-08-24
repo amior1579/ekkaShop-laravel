@@ -9,16 +9,17 @@ use App\Http\Services\Auth\AuthService;
 use App\Http\Services\Auth\Strategy\Auth\WebAuthStrategy;
 use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
 class WebAuthController extends Controller
 {
     protected AuthService $authService;
-    public function __construct(){
+    public function __construct(Guard $auth){
         $this->authService = new AuthService(
             new WebAuthStrategy(),
             new ImageService(),
-            new AuthRepository()
+            new AuthRepository($auth)
         );
 
     }
