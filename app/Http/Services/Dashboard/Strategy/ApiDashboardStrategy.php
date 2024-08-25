@@ -53,7 +53,7 @@ class ApiDashboardStrategy extends BaseDashboardStrategy
     public function AuthUser($user): JsonResponse
     {
         if ($user){
-            return response()->json(['message' => 'User deleted successfully']);
+            return response()->json(['message' => $user]);
         }
         throw new ApiAuthException();
     }
