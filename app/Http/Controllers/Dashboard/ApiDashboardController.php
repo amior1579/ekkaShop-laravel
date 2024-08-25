@@ -39,13 +39,14 @@ class ApiDashboardController extends Controller
     {
         return $this->dashboardService->deleteUser($userId);
     }
+
+//    --------------- User Profile ---------------
+    public function users_profile(){
+        return $this->dashboardService->getAuthUser();
+    }
     public function user_profile__updateUser(updateUserRequest $request, $userId){
         $validatedData = $request->validated();
         return $this->dashboardService->updateUser($validatedData,$userId);
 
     }
-//    public function users_profile(){
-//        $user = $this->adminDashService->getUser();
-//        return view('dashboard.layouts.content.users.users_profile',compact('user'));
-//    }
 }

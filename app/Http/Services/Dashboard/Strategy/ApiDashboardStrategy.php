@@ -50,6 +50,16 @@ class ApiDashboardStrategy extends BaseDashboardStrategy
     /**
      * @throws ApiAuthException
      */
+    public function AuthUser($user): JsonResponse
+    {
+        if ($user){
+            return response()->json(['message' => 'User deleted successfully']);
+        }
+        throw new ApiAuthException();
+    }
+    /**
+     * @throws ApiAuthException
+     */
     public function updateUser_str($user): JsonResponse
     {
         if ($user){
@@ -61,14 +71,4 @@ class ApiDashboardStrategy extends BaseDashboardStrategy
     }
 //
 //
-//    /**
-//     * @throws ApiAuthException
-//     */
-//    public function delete($user): JsonResponse
-//    {
-//        if ($user){
-//            return response()->json(['message' => 'User deleted successfully']);
-//        }
-//        throw new ApiAuthException();
-//    }
 }
