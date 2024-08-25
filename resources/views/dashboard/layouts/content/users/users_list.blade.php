@@ -80,7 +80,7 @@
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item" href="#">Edit</a>
                                                         <a class="dropdown-item"
-                                                           href="{{ route('dashboard-user_list-deleteUser', $user->id) }}">Delete</a>
+                                                           href="{{ route('dashboard-users_list-deleteUser', $user->id) }}">Delete</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -98,7 +98,7 @@
                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
-                        <form action="{{route('dashboard-user_list-addUser')}}" method="post" id="adduser_form"
+                        <form action="{{route('dashboard-users_list-addUser')}}" method="post" id="adduser_form"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="modal-header px-4">

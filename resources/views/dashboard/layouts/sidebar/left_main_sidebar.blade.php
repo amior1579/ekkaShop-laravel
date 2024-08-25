@@ -30,12 +30,12 @@
                     <div class="collapse" id="users-collapse">
                         <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
                             <li class="" id="users-list">
-                                <a class="sidenav-item-link " href="{{route('dashboard-user_list')}}">
+                                <a class="sidenav-item-link " href="{{route('dashboard-users_list')}}">
                                     <span class="nav-text">Users List</span>
                                 </a>
                             </li>
                             <li class="" id="user-profile">
-                                <a class="sidenav-item-link" href="{{route('dashboard-users_profile')}}">
+                                <a class="sidenav-item-link" href="{{route('dashboard-user_profile')}}">
                                     <span class="nav-text">User Profile</span>
                                 </a>
                             </li>

@@ -20,12 +20,13 @@ Route::prefix('/dashboard')->group(function () {
     Route::get ('/home', function () {return view('dashboard.layouts.content.index');})->name('dashboard-index');
 
 //    --------- Users list ---------
-    Route::get ('/users_list', [WebDashboardController::class, 'users_list'])->name('dashboard-user_list');
-    Route::post('/users_list/addUser', [WebDashboardController::class, 'users_list__addUser'])->name('dashboard-user_list-addUser');
-    Route::get ('/users_list/deleteUser/{userId}',[WebDashboardController::class,'users_list__deleteUser'])->name('dashboard-user_list-deleteUser');
+    Route::get ('/users_list', [WebDashboardController::class, 'users_list'])->name('dashboard-users_list');
+    Route::post('/users_list/addUser', [WebDashboardController::class, 'users_list__addUser'])->name('dashboard-users_list-addUser');
+    Route::get ('/users_list/deleteUser/{userId}',[WebDashboardController::class,'users_list__deleteUser'])->name('dashboard-users_list-deleteUser');
 
 //    --------- Users profile ---------
-    Route::get('/users_profile', [WebDashboardController::class, 'user_profile'])->name('dashboard-users_profile');
+    Route::get('/user_profile', [WebDashboardController::class, 'user_profile'])->name('dashboard-user_profile');
+    Route::put('/user_profile/updateUser', [WebDashboardController::class, 'update_user'])->name('dashboard-user_profile-update');
 
     //    --------- Users permissions ---------
 //    Route::get('/users_permissions', [WebDashboardController::class, 'users_permissions'])->name('dashboard-users_permissions');
