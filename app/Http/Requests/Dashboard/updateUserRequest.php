@@ -23,7 +23,7 @@ class updateUserRequest extends FormRequest
     {
         return [
             'name' => 'nullable|string|max:50',
-            'email' => 'nullable|string|email|max:255|unique:users',
+            'email' => 'nullable|string|email|max:255|unique:users,email,'.$this->user()->id,
             'phoneNumber' => 'nullable|string|size:11|regex:/^09[0-9]{9}$/',
             'profile' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'status' => 'required|in:active,inactive,pending',

@@ -49,7 +49,7 @@ class AuthRepository
     }
     public function getPermissionsUser()
     {
-        $permissions = Permission::where('user_id', $this->auth->id())->pluck('permission')->toArray();;
+        $permissions = Permission::where('user_id', $this->auth->id())->pluck('permission')->toArray();
         return $permissions;
     }
 
@@ -72,8 +72,9 @@ class AuthRepository
         $user = $this->findUser($userId);
         return $user ?->delete();
     }
-//    public function UpdateUser(array $data, $user_id){
-//        $user = $this->findUser($user_id);
-//        return $user?->update($data);
-//    }
+    public function updateUser_Repo(array $data, $userId): true|null
+    {
+        $user = $this->findUser($userId);
+        return $user?->update($data);
+    }
 }

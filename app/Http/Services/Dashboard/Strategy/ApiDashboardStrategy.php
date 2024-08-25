@@ -37,7 +37,7 @@ class ApiDashboardStrategy extends BaseDashboardStrategy
     /**
      * @throw ApiAuthException
      */
-    public function deleteUser_str($user)
+    public function deleteUser_str($user): JsonResponse
     {
         if($user){
             return response()->json([
@@ -46,20 +46,19 @@ class ApiDashboardStrategy extends BaseDashboardStrategy
         }
         throw new ApiAuthException();
     }
-//
-//
-//    /**
-//     * @throws ApiAuthException
-//     */
-//    public function register($data): JsonResponse
-//    {
-//        if ($data){
-//            return response()->json([
-//                'User' => new AuthResource($data),
-//            ]);
-//        }
-//        throw new ApiAuthException();
-//    }
+
+    /**
+     * @throws ApiAuthException
+     */
+    public function updateUser_str($user): JsonResponse
+    {
+        if ($user){
+            return response()->json([
+                'User' => 'updated successfully',
+            ]);
+        }
+        throw new ApiAuthException();
+    }
 //
 //
 //    /**

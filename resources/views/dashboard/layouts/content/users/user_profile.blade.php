@@ -7,6 +7,16 @@
 @section('contents')
     <div class="ec-content-wrapper users-menu user-profile ">
         <div class="content">
+            @if(session('message'))
+                <div id="success-message" class="floating-message">
+                    {{ session('message') }}
+                </div>
+            @endif
+            @if ($errors->any())
+                <div id="Failure-message" class="floating-message">
+                    User not created
+                </div>
+            @endif
             <div class="breadcrumb-wrapper breadcrumb-contacts">
                 <div>
                     <h1>User Profile</h1>
@@ -114,7 +124,7 @@
                                      aria-labelledby="settings-tab">
                                     <div class="tab-pane-content mt-5">
                                         <form class="form-update-class" method="post"
-                                              action="{{url('admin_dashboard/users_profile/userUpdate/'. $user->id)}}"
+                                              action="{{route('dashboard-user_profile-updateUser', $user->id)}}"
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group row mb-6">
@@ -123,7 +133,7 @@
                                                 <div class="col-sm-8 col-lg-10">
                                                     <div class="custom-file mb-1">
                                                         <input type="file" class="custom-file-input" id="coverImage"
-                                                               name="profile" value="{{$user->profile}}">
+                                                               name="profile">
                                                         <label class="custom-file-label" for="coverImage">Choose
                                                             file...</label>
                                                         <div class="invalid-feedback">Example invalid custom file
@@ -140,7 +150,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label for="Username">Username</label>
-                                                        <input type="text" class="form-control" name="username"
+                                                        <input type="text" class="form-control"
                                                                id="Username" value="{{$user->username}}" disabled>
                                                     </div>
                                                 </div>
@@ -157,7 +167,7 @@
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
-                                                        <label for="email">Name</label>
+                                                        <label for="email">Email</label>
                                                         <input type="email" class="form-control" name="email" id="email"
                                                                value="{{$user->email}}">
                                                     </div>

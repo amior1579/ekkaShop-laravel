@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\AddUserRequest;
+use App\Http\Requests\Dashboard\updateUserRequest;
 use App\Http\Services\Dashboard\Strategy\WebDashboardStrategy;
 use App\Http\Services\Dashboard\DashboardService;
 use App\Http\Services\ImageService;
@@ -40,15 +41,13 @@ class WebDashboardController extends Controller
     public function user_profile(){
         return $this->dashboardService->getAuthUser();
     }
+    public function user_profile__updateUser(updateUserRequest $request, $userId){
+        $validatedData = $request->validated();
+        return $this->dashboardService->updateUser($validatedData, $userId);
+    }
 //    public function users_permissions(){
 ////        return $this->dashboardService->AuthUser();
 //        return view('dashboard.layouts.content.users.users_permissions');
 //    }
 
-//    public function userUpdate(updateUserRequest $request, $user_id){
-//        $validatedData = $request->validated();
-//        $data = $this->imageService->profileUser($validatedData);
-//        $this->adminDashService->userUpdate($data, $user_id);
-//        return redirect()->back();
-//    }
 }

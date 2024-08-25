@@ -15,8 +15,7 @@ class DashboardService{
         DashboardStrategyInterface $strategy,
         ImageService $imageService,
         AuthRepository $authRepository,
-        private Guard $auth,
-)
+        private Guard $auth,)
     {
         $this->strategy = $strategy;
         $this->imageService = $imageService;
@@ -27,11 +26,6 @@ class DashboardService{
     {
         $users = $this->authRepository->allUsers();
         return $this->strategy->getAllUsers($users);
-    }
-    public function getAuthUser()
-    {
-        $permissions = $this->authRepository->getPermissionsUser();
-        return $this->strategy->AuthUser($this->auth->user(),$permissions);
     }
     public function addUser($data)
     {
@@ -44,4 +38,19 @@ class DashboardService{
         $user = $this->authRepository->deleteUser_Repo($userId);
         return $this->strategy->deleteUser_str($user);
     }
+//    ------------ User Profile ------------
+    public function getAuthUser()
+    {
+        $permissions = $this->authRepository->getPermissionsUser();
+        return $this->strategy->AuthUser($this->auth->user(),$permissions);
+    }
+    public function updateUser($data,$userId)
+    {
+        $newData = $this->imageService->updateProfileUser($data);
+        $user = $this->authRepository->updateUser_Repo($newData, $userId);
+        return $this->strategy->updateUser_str($user);
+
+
+    }
+
 }

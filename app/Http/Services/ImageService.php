@@ -12,4 +12,12 @@ class ImageService{
         $data['profile'] = 'images/null_images/nullProfile.jpg';
         return $data;
     }
+    public function updateProfileUser(array $data)
+    {
+        if (isset($data['profile'])){
+            $data['profile'] =  $data['profile']->store('images/profileUser', 'public');
+            return $data;
+        }
+        return $data;
+    }
 }

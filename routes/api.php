@@ -16,7 +16,9 @@ Route::prefix('/dashboard')->group(function () {
     Route::post('/users_list/deleteUser/{userId}',[ApiDashboardController::class,'users_list__deleteUser']);
 
     Route::get('/users_profile', [ApiDashboardController::class, 'users_profile']);
+    Route::post('/user_profile/updateUser/{userId}', [ApiDashboardController::class, 'user_profile__updateUser']);
 
-        //Route::get('/users_profile/{user_id}', [ApiDashboardController::class,'users_profile']);
-    Route::post('/users_profile/userUpdate/{user_id}', [ApiDashboardController::class, 'userUpdate']);
+
+    //Route::get('/users_profile/{user_id}', [ApiDashboardController::class,'users_profile']);
+//    Route::post('/users_profile/userUpdate/{user_id}', [ApiDashboardController::class, 'userUpdate']);
 });

@@ -2,12 +2,12 @@
 namespace App\Http\Services\Dashboard\Strategy;
 //use App\Http\Services\Strategy\Auth\AuthService;
 use App\Http\Services\Dashboard\Strategy\BaseDashboardStrategy;
-use http\Client\Curl\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Support\Facades\Log;
 
 class WebDashboardStrategy extends BaseDashboardStrategy
 {
@@ -40,5 +40,12 @@ class WebDashboardStrategy extends BaseDashboardStrategy
             return back()->with('message', 'User deleted successfully');
         }
         return back()->with('message', 'The user was not deleted');
+    }
+    public function updateUser_str($user): RedirectResponse
+    {
+        if ($user) {
+            return back()->with('message', 'User updated successfully');
+        }
+        return back()->with('message', 'Failed to update user');
     }
 }
