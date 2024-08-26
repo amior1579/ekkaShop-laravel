@@ -4,6 +4,7 @@ namespace App\Http\Services\Dashboard;
 use App\Http\Services\Dashboard\Strategy\DashboardStrategyInterface;
 use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
+use App\Repositories\UserPermissionRepository;
 use Illuminate\Contracts\Auth\Guard;
 
 class DashboardService{
@@ -11,15 +12,18 @@ class DashboardService{
     protected DashboardStrategyInterface $strategy;
     protected ImageService $imageService;
     protected AuthRepository $authRepository;
+    protected UserPermissionRepository $userPermissionRepository;
     public function __construct(
         DashboardStrategyInterface $strategy,
         ImageService $imageService,
         AuthRepository $authRepository,
+        UserPermissionRepository $userPermissionRepository,
         private Guard $auth,)
     {
         $this->strategy = $strategy;
         $this->imageService = $imageService;
         $this->authRepository = $authRepository;
+        $this->userPermissionRepository = $userPermissionRepository;
     }
 
     public function getAllUsers()
@@ -49,8 +53,11 @@ class DashboardService{
         $newData = $this->imageService->updateProfileUser($data);
         $user = $this->authRepository->updateUser_Repo($newData, $userId);
         return $this->strategy->updateUser_str($user);
-
-
+    }
+    public function updatePermissions($data,$userId)
+    {
+        $this->userPermissionRepository->updatePermissions_Repo($data, $userId);
+        return $this->strategy->updatePermissions_str(true);
     }
 
 }

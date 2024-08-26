@@ -48,4 +48,11 @@ class WebDashboardStrategy extends BaseDashboardStrategy
         }
         return back()->with('message', 'Failed to update user');
     }
+    public function updatePermissions_str($user): RedirectResponse
+    {
+        if ($user) {
+            return back()->with('message', 'User updated successfully');
+        }
+        return back()->with('message', 'Failed to update user');
+    }
 }

@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\AddUserRequest;
 use App\Http\Requests\Dashboard\updateUserRequest;
+use App\Http\Requests\Dashboard\UserPermissionsRequest;
 use App\Http\Services\Dashboard\Strategy\WebDashboardStrategy;
 use App\Http\Services\Dashboard\DashboardService;
 use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
+use App\Repositories\UserPermissionRepository;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
@@ -21,6 +23,7 @@ class WebDashboardController extends Controller
             new WebDashboardStrategy(),
             new ImageService(),
             new AuthRepository($auth),
+            new UserPermissionRepository($auth),
             $auth,
         );
     }
@@ -45,9 +48,9 @@ class WebDashboardController extends Controller
         $validatedData = $request->validated();
         return $this->dashboardService->updateUser($validatedData, $userId);
     }
-//    public function users_permissions(){
-////        return $this->dashboardService->AuthUser();
-//        return view('dashboard.layouts.content.users.users_permissions');
-//    }
+    public function user_profile__updatePermissions(UserPermissionsRequest $request, $userId){
+        $validatedData = $request->validated();
+        return $this->dashboardService->updatePermissions($validatedData,$userId);
+    }
 
 }

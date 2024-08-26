@@ -471,65 +471,68 @@
                                 </div>
 
                                 <div class="tab-pane fade" id="permissions" role="tabpanel" aria-labelledby="permissions-tab">
-                                    <div class="tab-widget mt-5">
-                                        <div class="row">
-                                            <div class="row mb-2">
-                                                <!-- User Management Permissions -->
-                                                <div class="col-lg-6 permission-section" id="UserManagement_permissions">
-                                                    <label class="permission_name">User Management</label>
-                                                    <div class="checkbox_group mb-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input select-all" type="checkbox" id="select_all_UserManagement">
-                                                            <label class="form-check-label" for="select_all_UserManagement">Select All</label>
-                                                        </div>
-                                                        @foreach(['view_users' => 'View user list', 'create_user' => 'Create a new user', 'edit_user' => 'Edit user profiles', 'delete_user' => 'Delete or deactivate users', 'reset_password' => 'Recover user passwords', 'manage_roles' => 'Set user roles and permissions'] as $permission => $label)
-                                                            <div class="form-check">
-                                                                <input
-                                                                    id="{{ $permission }}"
-                                                                    class="form-check-input"
-                                                                    type="checkbox"
-                                                                    name="permissions[UserManagement][{{ $permission }}]"
-                                                                    value="{{ $permission }}"
-                                                                    {{ in_array($permission, $permissions) ? 'checked' : '' }}>
-                                                                <label class="form-check-label" for="{{ $permission }}">{{ $label }}</label>
+                                    <form action="{{route('dashboard-user_profile-updatePermissions', $user->id)}}" method="post">
+                                        <div class="tab-widget mt-5">
+                                            <div class="row">
+                                                    @csrf
+                                                    <div class="row mb-2">
+                                                        <!-- User Management Permissions -->
+                                                        <div class="col-lg-6 permission-section" id="UserManagement_permissions">
+                                                            <label class="permission_name">User Management</label>
+                                                            <div class="checkbox_group mb-4">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input select-all" type="checkbox" id="select_all_UserManagement">
+                                                                    <label class="form-check-label" for="select_all_UserManagement">Select All</label>
+                                                                </div>
+                                                                @foreach(['view_users' => 'View user list', 'create_user' => 'Create a new user', 'edit_user' => 'Edit user profiles', 'delete_user' => 'Delete or deactivate users', 'reset_password' => 'Recover user passwords', 'manage_roles' => 'Set user roles and permissions'] as $permission => $label)
+                                                                    <div class="form-check">
+                                                                        <input
+                                                                            id="{{ $permission }}"
+                                                                            class="form-check-input"
+                                                                            type="checkbox"
+                                                                            name="permissions[UserManagement][{{ $permission }}]"
+                                                                            value="{{ $permission }}"
+                                                                            {{ in_array($permission, $permissions) ? 'checked' : '' }}>
+                                                                        <label class="form-check-label" for="{{ $permission }}">{{ $label }}</label>
+                                                                    </div>
+                                                                @endforeach
                                                             </div>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
+                                                        </div>
 
-                                                <!-- Product Management Permissions -->
-                                                <div class="col-lg-6 permission-section" id="ProductManagement_permissions">
-                                                    <label class="permission_name">Product Management</label>
-                                                    <div class="checkbox_group mb-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input select-all" type="checkbox" id="select_all_ProductManagement">
-                                                            <label class="form-check-label" for="select_all_ProductManagement">Select All</label>
-                                                        </div>
-                                                        @foreach(['view_product' => 'View product list', 'create_product' => 'Add new product', 'edit_product' => 'Edit product details', 'delete_product' => 'Delete product', 'product_category' => 'Manage product categories', 'product_inventory' => 'Manage product inventory', 'product_pricing' => 'Manage product pricing', 'product_reviews' => 'Manage product reviews', 'public_product' => 'Publish/unpublish product', 'product_tags' => 'Manage product tags', 'product_SEO' => 'Manage product SEO', 'product_analytics' => 'View product analytics'] as $permission => $label)
-                                                            <div class="form-check">
-                                                                <input
-                                                                    id="{{ $permission }}"
-                                                                    class="form-check-input"
-                                                                    type="checkbox"
-                                                                    name="permissions[ProductManagement][{{ $permission }}]"
-                                                                    value="{{ $permission }}"
-                                                                    {{ in_array($permission, $permissions) ? 'checked' : '' }}>
-                                                                <label class="form-check-label" for="{{ $permission }}">{{ $label }}</label>
+                                                        <!-- Product Management Permissions -->
+                                                        <div class="col-lg-6 permission-section" id="ProductManagement_permissions">
+                                                            <label class="permission_name">Product Management</label>
+                                                            <div class="checkbox_group mb-4">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input select-all" type="checkbox" id="select_all_ProductManagement">
+                                                                    <label class="form-check-label" for="select_all_ProductManagement">Select All</label>
+                                                                </div>
+                                                                @foreach(['view_product' => 'View product list', 'create_product' => 'Add new product', 'edit_product' => 'Edit product details', 'delete_product' => 'Delete product', 'product_category' => 'Manage product categories', 'product_inventory' => 'Manage product inventory', 'product_pricing' => 'Manage product pricing', 'product_reviews' => 'Manage product reviews', 'public_product' => 'Publish/unpublish product', 'product_tags' => 'Manage product tags', 'product_SEO' => 'Manage product SEO', 'product_analytics' => 'View product analytics'] as $permission => $label)
+                                                                    <div class="form-check">
+                                                                        <input
+                                                                            id="{{ $permission }}"
+                                                                            class="form-check-input"
+                                                                            type="checkbox"
+                                                                            name="permissions[ProductManagement][{{ $permission }}]"
+                                                                            value="{{ $permission }}"
+                                                                            {{ in_array($permission, $permissions) ? 'checked' : '' }}>
+                                                                        <label class="form-check-label" for="{{ $permission }}">{{ $label }}</label>
+                                                                    </div>
+                                                                @endforeach
                                                             </div>
-                                                        @endforeach
+                                                        </div>
                                                     </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="d-flex justify-content-end mt-5">
+                                                    <button type="submit"
+                                                            class="btn btn-primary mb-2 btn-pill">Update
+                                                        Permissions
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="d-flex justify-content-end mt-5">
-                                                <button type="submit"
-                                                        class="btn btn-primary mb-2 btn-pill">Update
-                                                    Permissions
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
 
                             </div>

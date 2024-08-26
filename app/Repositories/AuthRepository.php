@@ -15,7 +15,7 @@ use Illuminate\Contracts\Auth\Guard;
 
 class AuthRepository
 {
-    public function __construct(readonly Guard $auth) {}
+    public function __construct(private Guard $auth) {}
 
     public function findUser($user_id): User|null
     {
