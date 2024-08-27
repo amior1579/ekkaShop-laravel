@@ -12,10 +12,14 @@ namespace App\Repositories;
 use App\Models\User;
 use App\Models\Permission;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 
 class AuthRepository
 {
-    public function __construct(private Guard $auth) {}
+    public function __construct()
+    {
+
+    }
 
     public function findUser($user_id): User|null
     {
@@ -49,7 +53,7 @@ class AuthRepository
     }
     public function getPermissionsUser()
     {
-        $permissions = Permission::where('user_id', $this->auth->id())->pluck('permission')->toArray();
+        $permissions = Permission::where('user_id', Auth::id())->pluck('permission')->toArray();
         return $permissions;
     }
 
@@ -63,7 +67,7 @@ class AuthRepository
     }
 
     public function allUsers(){
-        return User::where('id', '!=', $this->auth->id())
+        return User::where('id', '!=', Auth::id())
             ->orderBy('created_at', 'desc')
             ->get();
     }

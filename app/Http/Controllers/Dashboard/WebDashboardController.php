@@ -18,13 +18,12 @@ class WebDashboardController extends Controller
 {
     protected DashboardService $dashboardService;
 
-    public function __construct(Guard $auth){
+    public function __construct(){
         $this->dashboardService = new DashboardService(
             new WebDashboardStrategy(),
             new ImageService(),
-            new AuthRepository($auth),
-            new UserPermissionRepository($auth),
-            $auth,
+            new AuthRepository(),
+            new UserPermissionRepository(),
         );
     }
 //    ---------------- Users List ----------------

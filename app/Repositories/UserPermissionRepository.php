@@ -7,10 +7,11 @@ namespace App\Repositories;
 use App\Models\User;
 use App\Models\Permission;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 
 class UserPermissionRepository
 {
-    public function __construct(readonly Guard $auth)
+    public function __construct()
     {
     }
 
@@ -66,7 +67,7 @@ class UserPermissionRepository
 
     public function getPermissionsUser()
     {
-        $permissions = Permission::where('user_id', $this->auth->id())->pluck('permission')->toArray();
+        $permissions = Permission::where('user_id', Auth::id())->pluck('permission')->toArray();
         return $permissions;
     }
 

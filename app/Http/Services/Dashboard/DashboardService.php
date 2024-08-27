@@ -6,6 +6,7 @@ use App\Http\Services\ImageService;
 use App\Repositories\AuthRepository;
 use App\Repositories\UserPermissionRepository;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardService{
 
@@ -18,7 +19,7 @@ class DashboardService{
         ImageService $imageService,
         AuthRepository $authRepository,
         UserPermissionRepository $userPermissionRepository,
-        private Guard $auth,)
+        )
     {
         $this->strategy = $strategy;
         $this->imageService = $imageService;
@@ -46,7 +47,7 @@ class DashboardService{
     public function getAuthUser()
     {
         $permissions = $this->authRepository->getPermissionsUser();
-        return $this->strategy->AuthUser($this->auth->user(),$permissions);
+        return $this->strategy->AuthUser(Auth::user(),$permissions);
     }
     public function updateUser($data,$userId)
     {
